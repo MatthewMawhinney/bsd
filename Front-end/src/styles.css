@@ -1,0 +1,147 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700,900');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Lobster');
+
+html {
+    background-image: url('http://mattmawhinney.com/bsd/clouds.png'),
+                      url('http://mattmawhinney.com/bsd/cityLong.png'),
+                      linear-gradient(to bottom,
+                      #85dbd8, #85dbd8
+    );
+    background-repeat: repeat-x,
+                       no-repeat,
+                       no-repeat;
+    background-position: top left,
+                         bottom left,
+                         top left;
+    height: 100vh;
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+}
+body {
+    background: rgb(132, 234, 238);
+    background: rgba(132, 234, 238, 0.75);
+    height: 100vh;
+}
+a:hover {
+    text-decoration: none;
+}
+.align-right {
+    text-align: right;
+}
+.landing {
+    max-width: 500px;
+    min-width: 350px;
+    margin: 0;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.header-text {
+    font-family: 'Lobster', cursive;
+    font-size: 2.5rem;
+    color: #ea5457;
+    text-shadow: 1px 1px 1px #000000;
+    margin: 15px;
+}
+.input {
+    padding-left: 15px;
+    margin: 15px auto;
+    height: 46px;
+    font-family: 'Raleway', 'Open Sans', sans-serif;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 3px 6px 0 rgba(0, 0, 0, 0.19);
+    vertical-align: bottom;
+}
+.field {
+    width: 275px;
+}
+.label {
+    color: #fff;
+    background-color: #367f4a;
+    margin: 15px 5px;
+    font-family: 'Raleway', 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 1.25rem;
+    padding: 8px 30px;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 3px 6px 0 rgba(0, 0, 0, 0.19);
+}
+.form-group {
+    margin-bottom: 0;
+}
+.button-lrg, .button-sml, .button-sml-grn {
+    color: #fff;
+    margin: 15px 5px;
+    font-family: 'Raleway', 'Open Sans', sans-serif;
+    font-weight: 700;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 3px 6px 0 rgba(0, 0, 0, 0.19);
+}
+.button-lrg {
+    font-size: 1.25rem;
+    padding: 8px 50px;
+}
+.button-sml, .button-sml-grn {
+    font-size: 1rem;
+    padding: 8px 30px;
+    background-color: #fff;
+    color: #367f4a;
+}
+.button-sml-grn {
+    background-color: #367f4a;
+    color: #fff;
+}
+.button-lrg:hover, .button-sml:hover, .button-sml-grn:hover {
+    box-shadow: none;
+}
+.logo-container {
+    display: inline-block;
+    margin-bottom: 15px;
+}
+.logo, .logo-sml {
+    font-family: 'Lobster', cursive;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000000;
+    transform: skewY(-10deg);
+    margin: 0;
+}
+.logo {
+    font-size: 6rem;
+}
+.logo-sml {
+    font-size: 4rem;
+    text-align: right;
+    margin-top: -25px;
+}
+.tagline {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000000;
+}
+.flashValidate-err, .flashValidate-suc {
+    width: 60%;
+    color: #fff;
+    margin: 15px auto;
+    font-family: 'Raleway', 'Open Sans', sans-serif;
+    font-weight: 700;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 3px 6px 0 rgba(0, 0, 0, 0.19);
+}
+.flashValidate-err {
+    background-color: #ea5457;
+}
+.flashValidate-suc {
+    background-color: #1e615f;
+}
+.flashValidate-err p, .flashValidate-suc p {
+    margin-bottom: 0;
+}
