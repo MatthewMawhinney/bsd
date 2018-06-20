@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-10 col-lg-8">
+      <input type="text" class="form-control" [(ngModel)]="userLoc" placeholder="Your location..." />
+      <app-gps></app-gps>
+    </div>
+    <div class="col-12 col-md-10 col-lg-8">
+      <input type="text" class="form-control" [(ngModel)]="searchFilter" (keyup)="onKeyPress($event)" placeholder="Looking for..."
+      />
+    </div>
+    <div class="col-12 center searchButtons">
+      <button class="btn btn-primary" (click)="onSearch()">Search</button>
+      <button class="btn btn-warning" (click)="clearSearch()">Clear</button>
+    </div>
+  </div>
+</div>
