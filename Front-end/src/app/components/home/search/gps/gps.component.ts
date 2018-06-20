@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Geolocation } from '../geolocation';
-import { LocationService } from '../../../services/location.service';
+import { LocationService } from '../../../../services/location.service';
 
 @Component({
   selector: 'app-gps',

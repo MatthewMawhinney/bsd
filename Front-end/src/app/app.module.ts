@@ -15,8 +15,8 @@ import { HomeComponent } from './components/home/home.component';
 import { ValidateService } from './services/validate.service';
 import { RegisterService } from './services/register.service';
 import { FlashMessagesModule } from 'angular2-flash-messages';
-import { SearchComponent } from './components/search/search.component';
-import { GpsComponent } from './components/search/gps/gps.component';
+import { SearchComponent } from './components/home/search/search.component';
+import { GpsComponent } from './components/home/search/gps/gps.component';
 // import { UserLocationComponent } from './components/search/user-location/user-location.component';
 
 const appRoutes: Routes = [
@@ -42,7 +42,11 @@ const appRoutes: Routes = [
     HttpModule,
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
-    FlashMessagesModule.forRoot()
+    FlashMessagesModule.forRoot(),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCsk8bH9eVGT9OZL4Timg7matKrTftgEGE',
+      libraries: ['places']
+    }),
   ],
   providers: [
     ValidateService,

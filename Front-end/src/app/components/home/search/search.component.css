@@ -1,0 +1,19 @@
+.go {
+  background-color: #367f4a;
+}
+
+.dropdown-list {
+  display: inline-block;
+  list-style: none;
+  padding-left: 0;
+  position: absolute;
+  left: -10000px;
+  margin-top: 0.25em;
+  height: 3em;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+fieldset {
+  border: 0;
+}

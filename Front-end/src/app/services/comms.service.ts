@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { Geolocation } from '../components/search/geolocation';
+import { Geolocation } from '../components/home/search/geolocation';
 
 @Injectable({
   providedIn: 'root'

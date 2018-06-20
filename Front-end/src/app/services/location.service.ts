@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Geolocation } from '../components/search/geolocation';
+import { Geolocation } from '../components/home/search/geolocation';
 import { Observable, of, BehaviorSubject } from 'rxjs';
 import { MapsAPILoader } from '@agm/core';
 import { CommsService } from './comms.service';
