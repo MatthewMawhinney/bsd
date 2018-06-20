@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
+import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -14,6 +15,9 @@ import { HomeComponent } from './components/home/home.component';
 import { ValidateService } from './services/validate.service';
 import { RegisterService } from './services/register.service';
 import { FlashMessagesModule } from 'angular2-flash-messages';
+import { SearchComponent } from './components/search/search.component';
+import { GpsComponent } from './components/search/gps/gps.component';
+// import { UserLocationComponent } from './components/search/user-location/user-location.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -27,7 +31,9 @@ const appRoutes: Routes = [
     HeaderComponent,
     RegisterComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    SearchComponent,
+    GpsComponent
   ],
   imports: [
     BrowserModule,
