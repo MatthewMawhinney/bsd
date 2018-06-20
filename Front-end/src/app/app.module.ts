@@ -6,7 +6,6 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
@@ -14,20 +13,22 @@ import { HomeComponent } from './components/home/home.component';
 import { ValidateService } from './services/validate.service';
 import { RegisterService } from './services/register.service';
 import { FlashMessagesModule } from 'angular2-flash-messages';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'login', component: LoginComponent }
+  { path: 'login', component: LoginComponent },
+  { path: 'dashboard', component: DashboardComponent }
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
     RegisterComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

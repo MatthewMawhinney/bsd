@@ -1,0 +1,61 @@
+.dashboard {
+    height: 97vh;
+    width: 97vw;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+}
+.dashboard nav {
+    background-color: #367f4a;
+    min-width: 50px;
+    margin: 0;
+    padding: 0;
+    height: 60px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 3px 6px 0 rgba(0, 0, 0, 0.19);
+}
+.places {
+    height: calc(100% - 60px);
+    width: 400px;
+    margin: 0;
+    float: right;
+    background-color: #367f4a;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+.map {
+    display: inline-block;
+    background-color: grey;
+    height: calc(100% - 60px);
+    width: calc(100% -  400px);
+    z-index: -1;
+    margin: 0;
+}
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
+}
+.logo-container {
+    margin: 0 15px;
+    margin-top: 12px;
+}
+.input, .input-sml {
+    margin: 10px 2px;
+    vertical-align: top;
+}
+.button-sml, .button-sml-red {
+    margin: 10px 15px 10px 5px;
+    vertical-align: top;
+}
+.search-inputs {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 20px;
+}
+
+@media all and (max-width: 1065px) {
+
+}
