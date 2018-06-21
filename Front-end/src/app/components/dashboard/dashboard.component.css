@@ -19,7 +19,7 @@
 }
 .places {
     height: calc(100% - 60px);
-    width: 400px;
+    width: 380px;
     margin: 0;
     float: right;
     background-color: #367f4a;
@@ -30,13 +30,13 @@
     display: inline-block;
     background-color: grey;
     height: calc(100% - 60px);
-    width: calc(100% -  400px);
+    width: calc(100% -  380px);
     z-index: -1;
     margin: 0;
 }
 ::-webkit-scrollbar {
     width: 0px;
-    background: transparent; /* make scrollbar transparent */
+    background: transparent; 
 }
 .logo-container {
     margin: 0 15px;
@@ -47,15 +47,54 @@
     vertical-align: top;
 }
 .button-sml, .button-sml-red {
-    margin: 10px 15px 10px 5px;
+    margin: 10px 5px 10px 5px;
     vertical-align: top;
+    height: 40px;
 }
 .search-inputs {
-    display: inline-block;
     vertical-align: top;
-    margin-left: 20px;
+    width: 380px;
+    height: 90px;
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    background-color: lightgrey;
+    padding: 0 5px;
 }
-
+.input-sml {
+    width: 135px;
+}
+.tags {
+    margin-top: 90px;
+}
+.tags > div {
+    background-color: #fff;
+    border-bottom: 1px solid lightgrey;
+}
+.place-one > div {
+    display: inline-block;
+    padding: 10px;
+    vertical-align: top;
+    max-width: 225px;
+}
+.place-one div h3 {
+    display: inline-block;
+    font-size: 1rem;
+    vertical-align: top;
+    margin: 0;
+}
+.place-one div p {
+    font-size: .8rem;
+    margin: 0;
+}
+.rating {
+    float: right;
+    margin: 5px;
+    padding: 5px 8px;
+    background-color: #1e615f;
+    border-radius: 2px;
+    color: #fff;
+}
 @media all and (max-width: 1065px) {
 
 }

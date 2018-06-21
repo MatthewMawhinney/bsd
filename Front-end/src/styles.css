@@ -115,7 +115,7 @@ a:hover {
     background-color: red;
     color: #fff;
 }
-.button-lrg:hover, .button-sml:hover, .button-sml-grn:hover {
+.button-lrg:hover, .button-sml:hover, .button-sml-grn:hover, .button-sml-red:hover {
     box-shadow: none;
 }
 .logo-container {
