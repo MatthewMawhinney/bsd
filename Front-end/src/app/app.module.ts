@@ -17,6 +17,7 @@ import { RegisterService } from './services/register.service';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { SearchComponent } from './components/home/search/search.component';
 import { GpsComponent } from './components/home/search/gps/gps.component';
+import { MapComponent } from './components/map/map.component';
 // import { UserLocationComponent } from './components/search/user-location/user-location.component';
 
 const appRoutes: Routes = [
@@ -33,7 +34,8 @@ const appRoutes: Routes = [
     LoginComponent,
     HomeComponent,
     SearchComponent,
-    GpsComponent
+    GpsComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,

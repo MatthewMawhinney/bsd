@@ -17,3 +17,8 @@
 fieldset {
   border: 0;
 }
+
+li input.form-control {
+  display: inline-block;
+  width: 20%;
+}

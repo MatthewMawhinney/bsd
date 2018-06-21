@@ -13,6 +13,7 @@ export class SearchComponent implements OnInit {
   searchFilter: string;
 
   userLoc: string;
+  gpsLocation : Geolocation;
 
   newSearch: boolean;
 
@@ -23,19 +24,13 @@ export class SearchComponent implements OnInit {
     this.comms.newSearch.subscribe(data => this.newSearch = data);
   }
 
-  // Accepts new search on button click
+
   onSearch() {
-    // GET THE RADIO BUTTON ELEMENT THAT IS CHECKED FOR THE LOCATION
-    const searchBy = document.querySelector('input[name="location"]:checked');
-    switch (searchBy.id) {
-      case 'gps':
-        const gpsLocation = this.locationService.requestGeoLoc();
-        // get lat and long and then assign to the props
-        this.comms.changeLocation(gpsLocation);
-        break;
-      case 'userDefined':
-        this.geocoding(this.userLoc);
-        break;
+    if (document.getElementById('gps').classList.contains('btn-success')){
+      this.gpsLocation = this.locationService.requestGeoLoc();
+      this.comms.changeLocation(this.gpsLocation);
+    } else {
+      this.geocoding(this.userLoc);
     }
 
     this.updateSearch(this.searchFilter);
@@ -108,7 +103,7 @@ export class SearchComponent implements OnInit {
     let dropdownBtn : any = document.querySelector('#listBtn');
     let selected : any = document.querySelectorAll('input:checked');
     if (selected.length == 0) {
-      dropdownBtn.innerHTML = "Select Options";
+      dropdownBtn.innerHTML = "Search Filters";
       return;
     } else if (selected.length >= 3) {
       dropdownBtn.innerHTML = selected.length + " filters";
