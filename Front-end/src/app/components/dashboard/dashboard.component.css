@@ -28,7 +28,6 @@
 }
 .map {
     display: inline-block;
-    background-color: grey;
     height: calc(100% - 60px);
     width: calc(100% -  380px);
     z-index: -1;

@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
     this.registerService.authenticateUser(user).subscribe(data => {
       if(data.success) {
         this.registerService.storeUserData(data.token, data.user);
-        this.router.navigate(['/home']);
+        this.router.navigate(['/']);
       } else {
         this.flashMessage.show(data.msg, {cssClass: 'flashValidate-err', timeout: 5000});
         this.router.navigate(['/login']);
