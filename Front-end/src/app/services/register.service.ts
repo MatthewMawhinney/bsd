@@ -55,4 +55,12 @@ export class RegisterService {
     this.user = null;
     localStorage.clear();
   }
+
+  public isValid(): boolean {
+    if(localStorage.getItem("id_token") != null) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }

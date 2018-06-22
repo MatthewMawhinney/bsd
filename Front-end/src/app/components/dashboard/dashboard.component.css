@@ -56,6 +56,7 @@
     height: 90px;
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
     position: fixed;
     background-color: lightgrey;
     padding: 0 5px;
@@ -94,6 +95,22 @@
     border-radius: 2px;
     color: #fff;
 }
-@media all and (max-width: 1065px) {
-
+.swapButton {
+    width: 100%;
+    display: block;
+    text-align: center;
+}
+@media all and (max-width: 390px) {
+    .places {
+        width: 100%;
+    }
+    .search-inputs {
+        width: 100%;
+    }
+    .logo-icon {
+        font-size: 1.8rem;
+    }
+    .logo-icon-sml {
+        font-size: 1.25rem;
+    }
 }

@@ -8,20 +8,24 @@
         </div>
         <h2 class="tagline">Because you needed another
             <br />person telling you where to go...</h2>
-        <select class="input">
+        <label for="filter" class="sr-only">Select a category</label>
+        <select class="input" name="filter">
             <option value="food">Food</option>
             <option value="Entertainment">Entertainment</option>
         </select>
-        <input id="gps" (click)="useGps()" type="submit" class="button-lrg nearMe" value="Near Me">
-        <p class="or">or</p>
-        <label for="search" class="sr-only">Search for location:</label>
-        <input id="searchField" [(ngModel)]="userLoc" type="text" placeholder="Search by address or city..." class="input search" name="search">
+        <div class="placeSearch">
+            <label for="gps" class="sr-only">Use my location</label>
+            <input id="gps" (click)="useGps()" type="submit" class="button-lrg nearMe" value="Near Me" name="gps">
+            <p class="or">or</p>
+            <label for="search" class="sr-only">Search for location</label>
+            <input id="searchField" [(ngModel)]="userLoc" type="text" placeholder="Search by address or city..." class="input search" name="search">
+        </div>
         <input (click)="onSearch()" type="submit" class="button-lrg go" value="Go">
     </div>
-    <flash-messages></flash-messages>
+    <!--<flash-messages></flash-messages>-->
     <div class="options">
-        <a [routerLink]="['/login']"><button class="button-sml">Login</button></a>
-        <a [routerLink]="['/register']"><button class="button-sml">Sign up</button></a>
-        <a (click)="onLogoutClick()"><button class="button-sml">Logout</button></a>
+        <a *ngIf="!registerService.isValid()" [routerLink]="['/login']"><button class="button-sml">Login</button></a>
+        <a *ngIf="!registerService.isValid()" [routerLink]="['/register']"><button class="button-sml">Sign up</button></a>
+        <a *ngIf="registerService.isValid()" (click)="onLogoutClick()"><button class="button-sml">Logout</button></a>
     </div>
 </div>

@@ -7,11 +7,14 @@
       </a>
     </div>
     <div class="float-right">
-      <a>
+      <a *ngIf="!registerService.isValid()">
         <button class="button-sml">My Pins</button>
       </a>
-      <a (click)="onLogoutClick()">
+      <a *ngIf="!registerService.isValid()" (click)="onLogoutClick()">
         <button class="button-sml-red">Logout</button>
+      </a>
+      <a *ngIf="registerService.isValid()" [routerLink]="['/login']">
+        <button class="button-sml">Login</button>
       </a>
     </div>
   </nav>
@@ -24,8 +27,9 @@
       <label for="search" class="sr-only">Search for location:</label>
       <input id="searchField" [(ngModel)]="userLoc" type="text" placeholder="Search" class="input-sml" name="search">
       <input (click)="onSearch()" type="submit" class="button-sml" value="Go">
+      <a (click)="swapTags()" class="swapButton">Show/Hide Tags</a>
     </div>
-    <div class="tags">
+    <div id="tags" class="tags">
       <div class="place-one">
         <p class="rating">5</p>
         <img src="https://via.placeholder.com/100x100" alt="">

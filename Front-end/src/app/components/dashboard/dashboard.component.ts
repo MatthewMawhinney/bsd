@@ -29,6 +29,15 @@ export class DashboardComponent implements OnInit {
     this.comms.newSearch.subscribe(data => this.newSearch = data);
   }
 
+  swapTags() {
+    let tags = document.getElementById("tags");
+    if(tags.classList.contains('sr-only')) {
+      tags.classList.remove('sr-only');
+    } else {
+      tags.classList.add('sr-only');
+    }
+  }
+
   onSearch() {
     /*if (document.getElementById("searchField").hasAttribute("disabled")) {
       this.gpsLocation = this.locationService.requestGeoLoc();

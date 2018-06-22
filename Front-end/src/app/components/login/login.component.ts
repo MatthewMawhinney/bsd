@@ -16,10 +16,10 @@ export class LoginComponent implements OnInit {
   constructor(
     private registerService: RegisterService,
     private router: Router,
-    private flashMessage: FlashMessagesService
+    private flashMessage: FlashMessagesService,
   ) { }
 
-  ngOnInit() {
+  ngOnInit(){
   }
 
   onLoginSubmit() {
