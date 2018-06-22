@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <ng-container *ngIf="searchFilter">
+      <hr/>
+      <h2>Here are some options...</h2>
+      <ng-container *ngFor="let p of places; let i = index">
+        <ng-container *ngIf="i < maxPlaces">
+          <app-place [place]="p"></app-place>
+        </ng-container>
+      </ng-container>
+      </ng-container>
+    </div>
+  </div>
+</div>

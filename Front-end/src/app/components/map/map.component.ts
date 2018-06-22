@@ -1,8 +1,10 @@
-import { Component, OnInit, NgZone, DoCheck } from '@angular/core';
-import { CommsService } from '../../services/comms.service';
+import {Component, OnInit, DoCheck} from '@angular/core';
+import {CommsService} from '../../services/comms.service';
 // import { } from 'googlemaps';
-import { MapsAPILoader } from '@agm/core';
-import { Geolocation } from '../../components/home/search/geolocation';
+import {MapsAPILoader} from '@agm/core';
+import {Geolocation} from '../../components/home/search/geolocation';
+import {Place} from "../../place";
+import {PlaceService} from "../../services/place.service";
 
 declare let google: any;
 
@@ -25,9 +27,11 @@ export class MapComponent implements OnInit, DoCheck {
 
   newSearch: boolean;
 
+  places: Place[] = [];
+
   constructor(private commsService: CommsService,
-    private mapsAPILoader: MapsAPILoader,
-    private ngZone: NgZone) {
+              private mapsAPILoader: MapsAPILoader,
+              private placeService: PlaceService,) {
   }
 
   ngOnInit() {
@@ -68,7 +72,8 @@ export class MapComponent implements OnInit, DoCheck {
 
   async setPlaces() {
     const response = <object>await this.getPlaces();
-    console.log(response);
+    //console.log(response);
+    this.placeService.setGooglePlaces(response);
     this.mapResults = response;
     this.lat = this.searchLocation.lat;
     this.lng = this.searchLocation.lng;

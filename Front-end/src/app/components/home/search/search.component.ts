@@ -24,7 +24,6 @@ export class SearchComponent implements OnInit {
     this.comms.newSearch.subscribe(data => this.newSearch = data);
   }
 
-
   onSearch() {
     if (document.getElementById('gps').classList.contains('btn-success')){
       this.gpsLocation = this.locationService.requestGeoLoc();
@@ -35,7 +34,6 @@ export class SearchComponent implements OnInit {
 
     this.updateSearch(this.searchFilter);
 
-    // this.comms.toggleSearch(true);
     setTimeout(() => {
       this.comms.toggleSearch(true);
     }, 100);
@@ -49,13 +47,6 @@ export class SearchComponent implements OnInit {
   // Function to update 'search' in CommsService
   updateSearch(search: string) {
     this.comms.changeSearch(search);
-  }
-
-  // Accepts new search though Enter key press
-  onKeyPress(event: KeyboardEvent) {
-    if (event.code === 'Enter') {
-      this.updateSearch(this.searchFilter);
-    }
   }
 
   // Take user input value (address, city, postal code... and turn to lat&long)

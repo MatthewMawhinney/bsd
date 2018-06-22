@@ -18,6 +18,8 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
 import { SearchComponent } from './components/home/search/search.component';
 import { GpsComponent } from './components/home/search/gps/gps.component';
 import { MapComponent } from './components/map/map.component';
+import { PlacesComponent } from './components/places/places.component';
+import { PlaceComponent } from './components/places/place/place.component';
 // import { UserLocationComponent } from './components/search/user-location/user-location.component';
 
 const appRoutes: Routes = [
@@ -35,7 +37,9 @@ const appRoutes: Routes = [
     HomeComponent,
     SearchComponent,
     GpsComponent,
-    MapComponent
+    MapComponent,
+    PlacesComponent,
+    PlaceComponent
   ],
   imports: [
     BrowserModule,
