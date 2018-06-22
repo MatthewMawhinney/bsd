@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-import { Geolocation } from '../components/home/search/geolocation';
+import {Injectable} from '@angular/core';
+import {BehaviorSubject} from 'rxjs';
+import {Geolocation} from '../components/home/search/geolocation';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +15,9 @@ export class CommsService {
 
   private newSearchBehaviour = new BehaviorSubject<boolean>(false);
   newSearch = this.newSearchBehaviour.asObservable();
+
+  private selectedPlaceBehavior = new BehaviorSubject<number>(-1);
+  selectedPlace = this.selectedPlaceBehavior.asObservable();
 
   constructor() {
   }
@@ -34,5 +37,9 @@ export class CommsService {
     } else {
       this.newSearchBehaviour.next(false);
     }
+  }
+
+  changeSelectedPlace(selection: number) {
+    this.selectedPlaceBehavior.next(selection);
   }
 }

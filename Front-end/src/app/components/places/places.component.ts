@@ -21,4 +21,8 @@ export class PlacesComponent implements OnInit {
     this.comms.searchFilter.subscribe(data => this.searchFilter = data);
   }
 
+  onPlace(index: number) {
+    this.comms.changeSelectedPlace(index);
+  }
+
 }

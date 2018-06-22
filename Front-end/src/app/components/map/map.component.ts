@@ -29,6 +29,8 @@ export class MapComponent implements OnInit, DoCheck {
 
   places: Place[] = [];
 
+  selectedPlace = -1;
+
   constructor(private commsService: CommsService,
               private mapsAPILoader: MapsAPILoader,
               private placeService: PlaceService,) {
@@ -38,6 +40,7 @@ export class MapComponent implements OnInit, DoCheck {
     this.commsService.searchFilter.subscribe(data => this.searchFilter = data);
     this.commsService.searchLocation.subscribe(data => this.searchLocation = data);
     this.commsService.newSearch.subscribe(data => this.newSearch = data);
+    this.commsService.selectedPlace.subscribe(data => this.selectedPlace = data)
   }
 
   ngDoCheck() {
@@ -77,6 +80,12 @@ export class MapComponent implements OnInit, DoCheck {
     this.mapResults = response;
     this.lat = this.searchLocation.lat;
     this.lng = this.searchLocation.lng;
+  }
+
+  onMarkerClick(lat: number, lng: number, index: number) {
+    // this.lat = lat;
+    // this.lng = lng;
+    this.selectedPlace = index;
   }
 
 }

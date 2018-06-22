@@ -23,7 +23,7 @@ export class PlaceService {
     //   place.types = element.types;
     //   placesHold.push(place);
     // });
-
+    console.log(response);
     for (let i in response) {
       const place = new Place();
       place.id = response[i].id;
