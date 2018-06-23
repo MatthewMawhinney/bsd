@@ -54,6 +54,7 @@ export class DashboardComponent implements OnInit {
     }, 100);
 
     this.router.navigate(['/dashboard']);
+    console.log(this.searchFilter);
   }
 
   // Clear search filter
@@ -79,19 +80,6 @@ export class DashboardComponent implements OnInit {
       }
     );
   }
-
-  /*useGps() {
-    let locationText: any = document.querySelector('#searchField');
-    if (locationText.hasAttribute('disabled')) {
-      locationText.removeAttribute('disabled');
-      locationText.setAttribute('placeholder', "Search by address or city...");
-      locationText.focus();
-    } else {
-      locationText.setAttribute('disabled', true);
-      locationText.setAttribute('placeholder', "Using GPS");
-      locationText.value = 'Using GPS';
-    }
-  }*/
 
   onLogoutClick() {
     this.registerService.logout();
