@@ -50,9 +50,16 @@ module.exports.comparePassword = function(candidatePassword, hash, callback) {
 
 // Read Favorites by User Id
 module.exports.getFavsByUserId = function(uid, callback) {
-    // uid = "5b29255b8b2a973a88a008bf";
     User.findById(uid, 'favorites', callback);
 }
 
-// Create and Update Favorites by User Id
+// Create and Update Favorites for User Id
+module.exports.updateFav = function(uid, place, callback) {
 
+    let b = User.findOneAndUpdate(
+        { _id : uid },
+        { $addToSet : {favorites : place} },
+        { new : true },
+        callback
+    );
+}
