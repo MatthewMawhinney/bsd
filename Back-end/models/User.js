@@ -14,6 +14,10 @@ const UserSchema = mongoose.Schema({
     password: {
         type: String,
         required: true
+    },
+    favorites: {
+        type: [],
+        required: false
     }
 });
 
@@ -43,3 +47,12 @@ module.exports.comparePassword = function(candidatePassword, hash, callback) {
         callback(null, isMatch);
     });
 }
+
+// Read Favorites by User Id
+module.exports.getFavsByUserId = function(uid, callback) {
+    // uid = "5b29255b8b2a973a88a008bf";
+    User.findById(uid, 'favorites', callback);
+}
+
+// Create and Update Favorites by User Id
+

@@ -59,4 +59,19 @@ router.get('/dashboard', passport.authenticate('jwt', {session: false}), (req, r
     res.json({user: req.user});
 });
 
+// Get All Favorites Belongs to the UserId
+router.get('/getFavs', (req, res) => {
+    // TODO: Get user id from frontend by body?
+    // const id = req.body.req;
+    const uid = "5b29255b8b2a973a88a008bf";
+
+    User.getFavsByUserId(uid, (err, favs) => {
+        if(err){
+            console.log(err);
+        }
+        res.send(favs);
+    });
+    console.log("getFavs works!");
+})
+
 module.exports = router;
