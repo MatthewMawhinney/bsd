@@ -31,10 +31,10 @@ export class DashboardComponent implements OnInit {
 
   swapTags() {
     let tags = document.getElementById("tags");
-    if(tags.classList.contains('sr-only')) {
-      tags.classList.remove('sr-only');
+    if(tags.classList.contains('hide')) {
+      tags.classList.remove('hide');
     } else {
-      tags.classList.add('sr-only');
+      tags.classList.add('hide');
     }
   }
 

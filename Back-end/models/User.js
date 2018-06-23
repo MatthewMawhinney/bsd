@@ -14,7 +14,10 @@ const UserSchema = mongoose.Schema({
     password: {
         type: String,
         required: true
-    }
+    },
+    favourites: [{
+        type: { type: Object }
+    }]
 });
 
 const User = module.exports = mongoose.model('User', UserSchema);

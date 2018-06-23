@@ -11,7 +11,8 @@ router.post('/register', (req, res) => {
     let newUser = new User({
         username: req.body.username,
         email: req.body.email,
-        password: req.body.password
+        password: req.body.password,
+        favourites: req.body.favourites
     });
     User.addUser(newUser, (err, user) => {
         if(err){
@@ -44,7 +45,8 @@ router.post('/authenticate', (req, res) => {
                     user: {
                         id: user._id,
                         username: user.username,
-                        email: user.email
+                        email: user.email,
+                        favourites: user.favourites
                     }
                 });
             } else {
