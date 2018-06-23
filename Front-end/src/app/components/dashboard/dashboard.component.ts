@@ -7,15 +7,14 @@ import { LocationService } from '../../services/location.service';
 import { Geolocation } from '../search/geolocation';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.css']
 })
-export class HomeComponent implements OnInit {
+export class DashboardComponent implements OnInit {
 
   userLoc: string;
   newSearch: boolean;
-  gpsLocation: Geolocation;
   searchFilter: string;
 
   constructor(
@@ -30,14 +29,23 @@ export class HomeComponent implements OnInit {
     this.comms.newSearch.subscribe(data => this.newSearch = data);
   }
 
+  swapTags() {
+    let tags = document.getElementById("tags");
+    if(tags.classList.contains('sr-only')) {
+      tags.classList.remove('sr-only');
+    } else {
+      tags.classList.add('sr-only');
+    }
+  }
+
   onSearch() {
-    if(document.getElementById("searchField").hasAttribute("disabled")) {
+    /*if (document.getElementById("searchField").hasAttribute("disabled")) {
       this.gpsLocation = this.locationService.requestGeoLoc();
       this.comms.changeLocation(this.gpsLocation);
-    } else {
+    } else {*/
       this.geocoding(this.userLoc);
-    }
-    
+    //}
+
     this.updateSearch(this.searchFilter);
 
     // this.comms.toggleSearch(true);
@@ -72,7 +80,7 @@ export class HomeComponent implements OnInit {
     );
   }
 
-  useGps() {
+  /*useGps() {
     let locationText: any = document.querySelector('#searchField');
     if (locationText.hasAttribute('disabled')) {
       locationText.removeAttribute('disabled');
@@ -83,11 +91,11 @@ export class HomeComponent implements OnInit {
       locationText.setAttribute('placeholder', "Using GPS");
       locationText.value = 'Using GPS';
     }
-  }
-  
+  }*/
+
   onLogoutClick() {
     this.registerService.logout();
-    this.flashMessage.show('You are now logged out.', {cssClass: 'flashValidate-suc', timeout: 5000});
+    //this.flashMessage.show('You are now logged out.', { cssClass: 'flashValidate-suc', timeout: 5000 });
     this.router.navigate(['/']);
     return false;
   }

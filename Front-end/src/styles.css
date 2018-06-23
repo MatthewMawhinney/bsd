@@ -27,12 +27,11 @@ body {
 a:hover {
     text-decoration: none;
 }
-.align-right {
-    text-align: right;
+.float-right {
+    float: right;
 }
 .landing {
     max-width: 500px;
-    min-width: 350px;
     margin: 0;
     text-align: center;
     position: absolute;
@@ -57,6 +56,16 @@ a:hover {
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 3px 6px 0 rgba(0, 0, 0, 0.19);
     vertical-align: bottom;
 }
+.input-sml {
+    padding-left: 15px;
+    margin: 15px auto;
+    height: 40px;
+    font-family: 'Raleway', 'Open Sans', sans-serif;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 3px 6px 0 rgba(0, 0, 0, 0.19);
+    vertical-align: bottom;
+}
 .field {
     width: 275px;
 }
@@ -75,7 +84,7 @@ a:hover {
 .form-group {
     margin-bottom: 0;
 }
-.button-lrg, .button-sml, .button-sml-grn {
+.button-lrg, .button-sml, .button-sml-grn, .button-sml-red {
     color: #fff;
     margin: 15px 5px;
     font-family: 'Raleway', 'Open Sans', sans-serif;
@@ -88,7 +97,7 @@ a:hover {
     font-size: 1.25rem;
     padding: 8px 50px;
 }
-.button-sml, .button-sml-grn {
+.button-sml, .button-sml-grn, .button-sml-red {
     font-size: 1rem;
     padding: 8px 30px;
     background-color: #fff;
@@ -98,14 +107,18 @@ a:hover {
     background-color: #367f4a;
     color: #fff;
 }
-.button-lrg:hover, .button-sml:hover, .button-sml-grn:hover {
+.button-sml-red {
+    background-color: red;
+    color: #fff;
+}
+.button-lrg:hover, .button-sml:hover, .button-sml-grn:hover, .button-sml-red:hover {
     box-shadow: none;
 }
 .logo-container {
     display: inline-block;
     margin-bottom: 15px;
 }
-.logo, .logo-sml {
+.logo, .logo-sml, .logo-icon, .logo-icon-sml {
     font-family: 'Lobster', cursive;
     color: #fff;
     text-shadow: 1px 1px 1px #000000;
@@ -120,6 +133,14 @@ a:hover {
     text-align: right;
     margin-top: -25px;
 }
+.logo-icon {
+    font-size: 1.5rem;
+}
+.logo-icon-sml {
+    font-size: 1rem;
+    text-align: right;
+    margin-top: -5px;
+}
 .tagline {
     font-size: 1.35rem;
     font-weight: 700;
@@ -127,7 +148,7 @@ a:hover {
     text-shadow: 1px 1px 1px #000000;
 }
 .flashValidate-err, .flashValidate-suc {
-    width: 60%;
+    width: 40%;
     color: #fff;
     margin: 15px auto;
     font-family: 'Raleway', 'Open Sans', sans-serif;
@@ -135,6 +156,12 @@ a:hover {
     border: none;
     border-radius: 3px;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 3px 6px 0 rgba(0, 0, 0, 0.19);
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 10;
 }
 .flashValidate-err {
     background-color: #ea5457;
@@ -144,4 +171,23 @@ a:hover {
 }
 .flashValidate-err p, .flashValidate-suc p {
     margin-bottom: 0;
+}
+@media all and (max-width: 600px) {
+    .input {
+        width: 175px;
+    }
+    .label {
+        padding: 12px 30px;
+    }
+    html {
+        font-size: 12px;
+    }
+}
+@media all and (max-width: 350px) {
+    html {
+        font-size: 10px;
+    }
+    .input {
+        width: 150px;
+    }
 }

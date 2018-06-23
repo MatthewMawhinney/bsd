@@ -1,0 +1,40 @@
+<!-- < div class="container" > -->
+<div class="row justify-content-center">
+  <div class="col-12 d-flex mb-3 row">
+    <input type="text" class="col-12 col-md-6 form-control" [(ngModel)]="userLoc" placeholder="Search by address..." />
+    <!-- < app - gps > </app-gps> -->
+    <button id="gps" type="button" class="btn btn-secondary button-sm col-12 col-md-6 form-control" (click)="useGps()"> Use GPS</button>
+  </div>
+  <div class="col-12 col-md-10 col-lg-8">
+    <!-- < input type = "text" class="form-control"[(ngModel)] = "searchFilter"(keyup) = "onKeyPress($event)" placeholder = "Looking for..." /> -->
+    <fieldset class='form-group'>
+      <legend class="sr-only"> Filter Options</legend>
+      <div>
+        <button id='listBtn' class="btn btn-secondary dropdown" (click)="toggleOptions()"> Search Filters</button>
+      </div>
+      <ul class="dropdown-list col-10">
+        <li>
+          <input id="opt1" class="form-control" type="checkbox" value="1" name="filters" (change)="updateButton()" />
+          <label for="opt1"> Filter 1</label>
+        </li>
+        <li>
+          <input id="opt2" class="form-control" type="checkbox" value="2" name="filters" (change)="updateButton()" />
+          <label for="opt2"> Filter 2</label>
+        </li>
+        <li>
+          <input id="opt3" class="form-control" type="checkbox" value="3" name="filters" (change)="updateButton()" />
+          <label for="opt3"> Filter 3</label>
+        </li>
+        <li>
+          <input id="opt4" class="form-control" type="checkbox" value="4" name="filters" (change)="updateButton()" />
+          <label for="opt4"> Filter 4</label>
+        </li>
+      </ul>
+    </fieldset>
+  </div>
+  <div class="col-12 searchButtons">
+    <button class=" button-lrg go " (click)="onSearch()"> Go</button>
+    <!-- < button class="btn btn-warning" (click)="clearSearch()"> Clear</button> -->
+  </div>
+</div>
+<!-- < /div> -->

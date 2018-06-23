@@ -1,0 +1,96 @@
+<div class="dashboard">
+  <nav>
+    <div class="logo-container">
+      <a [routerLink]="['/']">
+        <h1 class="logo-icon">Backseat</h1>
+        <h1 class="logo-icon-sml">Driver</h1>
+      </a>
+    </div>
+    <div class="float-right">
+      <a *ngIf="!registerService.isValid()">
+        <button class="button-sml">My Pins</button>
+      </a>
+      <a *ngIf="!registerService.isValid()" (click)="onLogoutClick()">
+        <button class="button-sml-red">Logout</button>
+      </a>
+      <a *ngIf="registerService.isValid()" [routerLink]="['/login']">
+        <button class="button-sml">Login</button>
+      </a>
+    </div>
+  </nav>
+  <div class="places">
+    <div class="search-inputs">
+      <select class="input-sml">
+        <option value="food">Food</option>
+        <option value="Entertainment">Entertainment</option>
+      </select>
+      <label for="search" class="sr-only">Search for location:</label>
+      <input id="searchField" [(ngModel)]="userLoc" type="text" placeholder="Search" class="input-sml" name="search">
+      <input (click)="onSearch()" type="submit" class="button-sml" value="Go">
+      <a (click)="swapTags()" class="swapButton">Show/Hide Tags</a>
+    </div>
+    <div id="tags" class="tags">
+      <div class="place-one">
+        <p class="rating">5</p>
+        <img src="https://via.placeholder.com/100x100" alt="">
+        <div>
+          <h3>1. Rogers Centre</h3>
+          <p>1 Blue Jays Way Toronto, ON</p>
+          <p>Entertainment</p>
+          <p>1km</p>
+        </div>
+      </div>
+      <div class="place-one">
+        <p class="rating">5</p>
+        <img src="https://via.placeholder.com/100x100" alt="">
+        <div>
+          <h3>2. Royal Ontario Museum</h3>
+          <p>1 Blue Jays Way Toronto, ON</p>
+          <p>1km</p>
+        </div>
+      </div>
+      <div class="place-one">
+        <p class="rating">5</p>
+        <img src="https://via.placeholder.com/100x100" alt="">
+        <div>
+          <h3>3. Long John Silver's All You Can Eat Ribs and Pasta</h3>
+          <p>1 Blue Jays Way Toronto, ON</p>
+          <p>1km</p>
+        </div>
+      </div>
+      <div class="place-one">
+        <p class="rating">5</p>
+        <img src="https://via.placeholder.com/100x100" alt="">
+        <div>
+          <h3>Rogers Centre</h3>
+          <p>1 Blue Jays Way Toronto, ON</p>
+          <p>Entertainment</p>
+          <p>1km</p>
+        </div>
+      </div>
+      <div class="place-one">
+        <p class="rating">5</p>
+        <img src="https://via.placeholder.com/100x100" alt="">
+        <div>
+          <h3>Rogers Centre</h3>
+          <p>1 Blue Jays Way Toronto, ON</p>
+          <p>Entertainment</p>
+          <p>1km</p>
+        </div>
+      </div>
+      <div class="place-one">
+        <p class="rating">5</p>
+        <img src="https://via.placeholder.com/100x100" alt="">
+        <div>
+          <h3>Rogers Centre</h3>
+          <p>1 Blue Jays Way Toronto, ON</p>
+          <p>Entertainment</p>
+          <p>1km</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--<div class="map">-->
+  <app-map class="map"></app-map>
+  <!--</div>-->
+</div>

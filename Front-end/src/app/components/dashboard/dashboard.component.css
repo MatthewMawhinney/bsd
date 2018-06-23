@@ -1,0 +1,116 @@
+.dashboard {
+    height: 97vh;
+    width: 97vw;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+}
+.dashboard nav {
+    background-color: #367f4a;
+    min-width: 50px;
+    margin: 0;
+    padding: 0;
+    height: 60px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 3px 6px 0 rgba(0, 0, 0, 0.19);
+}
+.places {
+    height: calc(100% - 60px);
+    width: 380px;
+    margin: 0;
+    float: right;
+    background-color: #367f4a;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+.map {
+    display: inline-block;
+    height: calc(100% - 60px);
+    width: calc(100% -  380px);
+    z-index: -1;
+    margin: 0;
+}
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; 
+}
+.logo-container {
+    margin: 0 15px;
+    margin-top: 12px;
+}
+.input, .input-sml {
+    margin: 10px 2px;
+    vertical-align: top;
+}
+.button-sml, .button-sml-red {
+    margin: 10px 5px 10px 5px;
+    vertical-align: top;
+    height: 40px;
+}
+.search-inputs {
+    vertical-align: top;
+    width: 380px;
+    height: 90px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    position: fixed;
+    background-color: lightgrey;
+    padding: 0 5px;
+}
+.input-sml {
+    width: 135px;
+}
+.tags {
+    margin-top: 90px;
+}
+.tags > div {
+    background-color: #fff;
+    border-bottom: 1px solid lightgrey;
+}
+.place-one > div {
+    display: inline-block;
+    padding: 10px;
+    vertical-align: top;
+    max-width: 225px;
+}
+.place-one div h3 {
+    display: inline-block;
+    font-size: 1rem;
+    vertical-align: top;
+    margin: 0;
+}
+.place-one div p {
+    font-size: .8rem;
+    margin: 0;
+}
+.rating {
+    float: right;
+    margin: 5px;
+    padding: 5px 8px;
+    background-color: #1e615f;
+    border-radius: 2px;
+    color: #fff;
+}
+.swapButton {
+    width: 100%;
+    display: block;
+    text-align: center;
+}
+@media all and (max-width: 390px) {
+    .places {
+        width: 100%;
+    }
+    .search-inputs {
+        width: 100%;
+    }
+    .logo-icon {
+        font-size: 1.8rem;
+    }
+    .logo-icon-sml {
+        font-size: 1.25rem;
+    }
+}

@@ -4,7 +4,7 @@
 .or {
     font-family: 'Lobster', 'Raleway', sans-serif;
     font-size: 3rem;
-    margin: -15px 0 0 0;
+    margin: 0 10px;
     color: #fff;
     text-shadow: 1px 1px 2px #000000;
 }
@@ -16,4 +16,18 @@
 }
 .options {
     margin-top: 25px;
+}
+.placeSearch {
+    display: flex;
+}
+@media all and (max-width: 600px) {
+    .placeSearch {
+        display: block;
+    }
+    .or {
+        margin: -12px 0;
+    }
+    html {
+        font-size: 12px;
+    }
 }
