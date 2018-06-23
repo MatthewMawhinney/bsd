@@ -73,7 +73,7 @@ router.get('/getFavs', (req, res) => {
 
 router.post('/updateFav', (req, res) => {
     // TODO: Get POST request and set uid:string and place{}
-    // const uid = req.body.id; // string
+    // const uid = req.body.uid; // string
     // const place = req.body.place;
     
     // hard coded value will be replaced later
