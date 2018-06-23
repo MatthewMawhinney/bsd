@@ -20,6 +20,8 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { MapComponent } from './components/map/map.component';
 import { SearchComponent } from './components/search/search.component';
+import { PlacesComponent } from './components/places/places.component';
+import { PlaceComponent } from './components/places/place/place.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -36,7 +38,9 @@ const appRoutes: Routes = [
     HomeComponent,
     DashboardComponent,
     MapComponent,
-    SearchComponent
+    SearchComponent,
+    PlacesComponent,
+    PlaceComponent
   ],
   imports: [
     BrowserModule,
