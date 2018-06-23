@@ -22,7 +22,7 @@
     <div class="search-inputs">
       <select class="input-sml">
         <option value="food">Food</option>
-        <option value="Entertainment">Entertainment</option>
+        <option value="entertainment">Entertainment</option>
       </select>
       <label for="search" class="sr-only">Search for location:</label>
       <input id="searchField" [(ngModel)]="userLoc" type="text" placeholder="Search" class="input-sml" name="search">
@@ -30,64 +30,7 @@
       <a (click)="swapTags()" class="swapButton">Show/Hide Tags</a>
     </div>
     <div id="tags" class="tags">
-      <div class="place-one">
-        <p class="rating">5</p>
-        <img src="https://via.placeholder.com/100x100" alt="">
-        <div>
-          <h3>1. Rogers Centre</h3>
-          <p>1 Blue Jays Way Toronto, ON</p>
-          <p>Entertainment</p>
-          <p>1km</p>
-        </div>
-      </div>
-      <div class="place-one">
-        <p class="rating">5</p>
-        <img src="https://via.placeholder.com/100x100" alt="">
-        <div>
-          <h3>2. Royal Ontario Museum</h3>
-          <p>1 Blue Jays Way Toronto, ON</p>
-          <p>1km</p>
-        </div>
-      </div>
-      <div class="place-one">
-        <p class="rating">5</p>
-        <img src="https://via.placeholder.com/100x100" alt="">
-        <div>
-          <h3>3. Long John Silver's All You Can Eat Ribs and Pasta</h3>
-          <p>1 Blue Jays Way Toronto, ON</p>
-          <p>1km</p>
-        </div>
-      </div>
-      <div class="place-one">
-        <p class="rating">5</p>
-        <img src="https://via.placeholder.com/100x100" alt="">
-        <div>
-          <h3>Rogers Centre</h3>
-          <p>1 Blue Jays Way Toronto, ON</p>
-          <p>Entertainment</p>
-          <p>1km</p>
-        </div>
-      </div>
-      <div class="place-one">
-        <p class="rating">5</p>
-        <img src="https://via.placeholder.com/100x100" alt="">
-        <div>
-          <h3>Rogers Centre</h3>
-          <p>1 Blue Jays Way Toronto, ON</p>
-          <p>Entertainment</p>
-          <p>1km</p>
-        </div>
-      </div>
-      <div class="place-one">
-        <p class="rating">5</p>
-        <img src="https://via.placeholder.com/100x100" alt="">
-        <div>
-          <h3>Rogers Centre</h3>
-          <p>1 Blue Jays Way Toronto, ON</p>
-          <p>Entertainment</p>
-          <p>1km</p>
-        </div>
-      </div>
+        <app-places></app-places>
     </div>
   </div>
   <!--<div class="map">-->

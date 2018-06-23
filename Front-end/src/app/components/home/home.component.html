@@ -9,7 +9,7 @@
         <h2 class="tagline">Because you needed another
             <br />person telling you where to go...</h2>
         <label for="filter" class="sr-only">Select a category</label>
-        <select class="input" name="filter">
+        <select class="input" name="filter" [(ngModel)]="searchFilter">
             <option value="food">Food</option>
             <option value="Entertainment">Entertainment</option>
         </select>
