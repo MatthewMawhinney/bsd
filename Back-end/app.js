@@ -19,6 +19,7 @@ mongoose.connection.on('error', (err) => {
 const app = express();
 
 const users = require('./routes/users');
+const paul = require('./routes/paul');
 
 const port = process.env.PORT || 3000;
 
@@ -37,6 +38,7 @@ app.use(passport.session());
 require('./config/passport')(passport);
 
 app.use('/users', users);
+app.use('/paul', paul);
 
 app.listen(port, () => {
     console.log("Server started on port " + port);
