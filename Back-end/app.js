@@ -21,13 +21,7 @@ const app = express();
 const users = require('./routes/users');
 const paul = require('./routes/paul');
 
-<<<<<<< HEAD
-// TODO: enable this when deploy
-// const port = process.env.PORT||8080;
-const port = 3000;
-=======
 const port = process.env.PORT || 5000;
->>>>>>> 57b1c2761fcc63e3588b64894cc3c4e055511593
 
 app.use(cors());
 
