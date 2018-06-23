@@ -1,0 +1,27 @@
+<div class="place-one">
+  <ng-container [ngSwitch]="true">
+    <ng-container *ngSwitchCase="testRating(place.rating) == 'low'">
+      <p class="rating low-rating">{{ place.rating }}</p>
+    </ng-container>
+    <ng-container *ngSwitchCase="testRating(place.rating) == 'medium'">
+      <p class="rating medium-rating">{{ place.rating }}</p>
+    </ng-container>
+    <ng-container *ngSwitchCase="testRating(place.rating) == 'good'">
+      <p class="rating good-rating">{{ place.rating }}</p>
+    </ng-container>
+    <ng-container *ngSwitchCase="testRating(place.rating) == 'high'">
+      <p class="rating great-rating">{{ place.rating }}</p>
+    </ng-container>
+  </ng-container>
+  <img src="{{ place.icon }}" alt="">
+  <div>
+    <h3>{{ place.name}}</h3>
+    <p>{{ place.vicinity }}</p>
+    <ng-container *ngIf="place.opening_hours.open_now == true">
+      <p class="suc-text">Open Now!</p>
+    </ng-container>
+    <ng-container *ngIf="place.opening_hours.open_now == false">
+      <p class="err-text">Closed</p>
+    </ng-container>
+  </div>
+</div>
