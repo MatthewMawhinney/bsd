@@ -11,7 +11,8 @@ router.post('/register', (req, res) => {
     let newUser = new User({
         username: req.body.username,
         email: req.body.email,
-        password: req.body.password
+        password: req.body.password,
+        favourites: req.body.favourites
     });
     User.addUser(newUser, (err, user) => {
         if(err){
@@ -44,7 +45,8 @@ router.post('/authenticate', (req, res) => {
                     user: {
                         id: user._id,
                         username: user.username,
-                        email: user.email
+                        email: user.email,
+                        favourites: user.favourites
                     }
                 });
             } else {
@@ -54,5 +56,81 @@ router.post('/authenticate', (req, res) => {
     });
 });
 
+
+// Get All Favorites Belongs to the UserId
+router.get('/getFavs', (req, res) => {
+    // TODO: Get user id from frontend by body
+    // const id = req.body.uid;
+
+    // hard coded value will be replaced later
+    const uid = "5b29255b8b2a973a88a008bf";
+
+    User.getFavsByUserId(uid, (err, favs) => {
+        if(err){
+            console.log(err);
+        }
+        res.send(favs); // provides array of places 
+    });
+});
+
+router.post('/updateFav', (req, res) => {
+    // TODO: Get POST request and set uid:string and place{}
+    // const uid = req.body.uid; // string
+    // const place = req.body.place;
+    
+    // hard coded value will be replaced later
+    uid = "5b29255b8b2a973a88a008bf";
+    place = {
+        "geometry": {
+            "location": {
+                "lat": 43.72474649999999,
+                "lng": -79.8009029
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": 43.72622298029149,
+                    "lng": -79.79909946970848
+                },
+                "southwest": {
+                    "lat": 43.72352501970849,
+                    "lng": -79.8017974302915
+                }
+            }
+        },
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+        "id": "7de8aa353368060de834f05788da333a5886413b",
+        "name": "Loafer's Lake Recreation Centre",
+        "opening_hours": {
+            "open_now": false,
+            "weekday_text": []
+        },
+        "photos": [
+            {
+                "height": 3040,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/102143845497921441064/photos\">Edward Fung<\/a>"
+                ],
+                "photo_reference": "CmRaAAAAE4PXiV_FIbunrpf4aG5RsEUjryzHFYbd58BNbd0yrH6lWQUG-V3FPHoFEjXabl1GbmocRL1jUQiCBs1xArrUU-9Le_SBLnmtknmXJcRMPCDFVwiQyBrBqkjrsJ4HIEhBEhCvt3uZM2jgjIQjwL0JDuF_GhRlBNOgKZT51EtWHOa2ds5JYtm2vg",
+                "width": 4056
+            }
+        ],
+        "place_id": "ChIJNYWLF5oWK4gRcQyRw8e1NNk",
+        "rating": 4.2,
+        "reference": "CmRSAAAACi7_BFywMejTJM5av9YwKmW6lcmreU97kQoGIjtxfU8oN6LpVGWpGcGA00DO7W6Pci7k7ZPf6cUB5ISfJmGNFzodbQNHm1HKWx3veeXiYr5KWsa8kMidSDIPrX6Ni4aHEhBgKLEydUKP2VK_bPUGLh63GhShzOFv80GUGqYs5nRPQfgqSSoxWQ",
+        "scope": "GOOGLE",
+        "types": [
+            "point_of_interest",
+            "establishment"
+        ],
+        "vicinity": "30 Loafers Lake Lane, Brampton"
+    };
+    
+    User.updateFav(uid, place, (err, result) => {
+        if(err){
+            console.log(err);
+        }
+        res.send(result); // provides updated array of place
+    });
+});
 
 module.exports = router;

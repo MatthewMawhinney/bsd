@@ -26,7 +26,7 @@ export class RegisterService {
 
   // register a new user with POST method
   registerUser(user: User) {
-    // user is the object passed from the authentication.component
+    // user is the object passed from the register.component
     //const body = JSON.stringify(user);
     let headers = new Headers({ 'Content-Type': 'application/json' });
 
@@ -35,7 +35,6 @@ export class RegisterService {
       // .post('users/register', user, { headers: headers })
       .post('http://localhost:3000/users/register', user, { headers: headers })
       .pipe(map((response: Response) => response.json()), catchError(this.handleError));
-
   }
 
   authenticateUser(user) {

@@ -7,13 +7,13 @@
       </a>
     </div>
     <div class="float-right">
-      <a *ngIf="!registerService.isValid()">
+      <a *ngIf="registerService.isValid()">
         <button class="button-sml">My Pins</button>
       </a>
-      <a *ngIf="!registerService.isValid()" (click)="onLogoutClick()">
+      <a *ngIf="registerService.isValid()" (click)="onLogoutClick()">
         <button class="button-sml-red">Logout</button>
       </a>
-      <a *ngIf="registerService.isValid()" [routerLink]="['/login']">
+      <a *ngIf="!registerService.isValid()" [routerLink]="['/login']">
         <button class="button-sml">Login</button>
       </a>
     </div>
@@ -25,13 +25,14 @@
         <option value="entertainment">Entertainment</option>
       </select>
       <label for="search" class="sr-only">Search for location:</label>
-      <input id="searchField" [(ngModel)]="userLoc" type="text" placeholder="Search" class="input-sml" name="search">
+      <input id="searchField" [(ngModel)]="searchFilter" type="text" placeholder="Search" class="input-sml" name="search">
       <input (click)="onSearch()" type="submit" class="button-sml" value="Go">
-      <a (click)="swapTags()" class="swapButton">Show/Hide Tags</a>
+      <p>Results:</p>
+      <a (click)="swapTags()" class="swapButton"><p>Show/Hide Tags</p></a>
     </div>
-    <div id="tags" class="tags">
-        <app-places></app-places>
-    </div>
+  </div>
+  <div id="tags" class="tags">
+    <app-places></app-places>
   </div>
   <!--<div class="map">-->
   <app-map class="map"></app-map>
