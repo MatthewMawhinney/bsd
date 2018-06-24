@@ -20,12 +20,8 @@
   </nav>
   <div class="places">
     <div class="search-inputs">
-      <select class="input-sml">
-        <option value="food">Food</option>
-        <option value="entertainment">Entertainment</option>
-      </select>
       <label for="search" class="sr-only">Search for location:</label>
-      <input id="searchField" [(ngModel)]="searchFilter" type="text" placeholder="Search" class="input-sml" name="search">
+      <input id="searchField" [(ngModel)]="searchFilter" type="text" placeholder="Search" class="input-sml filter" name="search">
       <input (click)="onSearch()" type="submit" class="button-sml" value="Go">
       <p>Results:</p>
       <a (click)="swapTags()" class="swapButton"><p>Show/Hide Tags</p></a>

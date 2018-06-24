@@ -3,6 +3,6 @@ export class User {
         public email: String,
         public password: String,
         public username: String,
-        public favourites: any[]
+        public favorites: any
     ) { }
 }
