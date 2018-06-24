@@ -28,23 +28,21 @@ export class RegisterService {
   registerUser(user: User) {
     // user is the object passed from the register.component
     //const body = JSON.stringify(user);
-    const httpOptions = {
-      headers: new Headers({ 
-        'Content-Type': 'application/json' 
-      })
-    };
-    return this.http.post('http://localhost:3000/users/register', user, httpOptions)
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+
+    return this.http
+      // TODO
+      // .post('users/register', user, { headers: headers })
+      .post('http://localhost:3000/users/register', user, { headers: headers })
       .pipe(map((response: Response) => response.json()), catchError(this.handleError));
   }
 
   authenticateUser(user) {
-    const httpOptions = {
-      headers: new Headers({
-        'Content-Type': 'application/json'
-      })
-    };
+    let headers = new Headers({ 'Content-Type': 'application/json' });
     return this.http
-      .post('http://localhost:3000/users/authenticate', user, httpOptions)
+      // TODO
+      // .post('users/authenticate', user, { headers: headers })
+      .post('http://localhost:3000/users/authenticate', user, { headers: headers })
       .pipe(map((response: Response) => response.json()), catchError(this.handleError));
   }
 

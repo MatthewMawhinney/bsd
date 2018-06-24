@@ -15,34 +15,53 @@ const UserSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    favourites: [{
-        type: { type: Object }
-    }]
+    favorites: {
+        type: [],
+        required: false
+    }
 });
 
 const User = module.exports = mongoose.model('User', UserSchema);
 
-module.exports.getUserById = function(id, callback) {
+module.exports.getUserById = function (id, callback) {
     User.findById(id, callback);
 }
 
-module.exports.getUserByUsername = function(username, callback) {
-    const query = {username: username}
+module.exports.getUserByUsername = function (username, callback) {
+    const query = {
+        username: username
+    }
     User.findOne(query, callback);
 }
 
-module.exports.addUser = function(newUser, callback) {
+module.exports.addUser = function (newUser, callback) {
     bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(newUser.password, salt, (err, hash) => {
-            if(err) throw err;
+            if (err) throw err;
             newUser.password = hash;
             newUser.save(callback);
         });
     });
 }
-module.exports.comparePassword = function(candidatePassword, hash, callback) {
+module.exports.comparePassword = function (candidatePassword, hash, callback) {
     bcrypt.compare(candidatePassword, hash, (err, isMatch) => {
-        if(err) throw err;
+        if (err) throw err;
         callback(null, isMatch);
     });
+}
+
+// Read Favorites by User Id
+module.exports.getFavsByUserId = function(uid, callback) {
+    User.findById(uid, 'favorites', callback);
+}
+
+// Create and Update Favorites for User Id
+module.exports.updateFav = function(uid, place, callback) {
+
+    let b = User.findOneAndUpdate(
+        { _id : uid },
+        { $addToSet : {favorites : place} },
+        { new : true },
+        callback
+    );
 }
