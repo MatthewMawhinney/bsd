@@ -8,17 +8,19 @@
         </div>
         <h2 class="tagline">Because you needed another
             <br />person telling you where to go...</h2>
-        <label for="filter" class="sr-only">Select a category</label>
-        <select class="input" name="filter" [(ngModel)]="searchFilter">
-            <option selected="selected" value="food">Food</option>
-            <option value="entertainment">Entertainment</option>
-            <option value="bar">Nightlife</option>
-            <option value="shopping_mall">Shopping</option>
-            <option value="park">Parks</option>
-            <option value="liquor_store">Alcohol</option>
-            <option value="gas_station">Gas</option>
-            <option value="convience_store">Convience Stores</option>
-        </select>
+        <!--<label for="filter" class="sr-only">Select a category</label>-->
+        <!--<select class="input" name="filter" [(ngModel)]="searchFilter">-->
+            <!--<option selected="selected" value="food">Food</option>-->
+            <!--<option value="entertainment">Entertainment</option>-->
+            <!--<option value="bar">Nightlife</option>-->
+            <!--<option value="shopping_mall">Shopping</option>-->
+            <!--<option value="park">Parks</option>-->
+            <!--<option value="liquor_store">Alcohol</option>-->
+            <!--<option value="gas_station">Gas</option>-->
+            <!--<option value="convience_store">Convience Stores</option>-->
+        <!--</select>-->
+      <label for="filter" class="sr-only">Select a category</label>
+      <input type="text" class="form-control input" [(ngModel)]="searchFilter" placeholder="Search"/>
         <div class="placeSearch">
             <label for="gps" class="sr-only">Use my location</label>
             <input id="gps" (click)="useGps()" type="submit" class="button-lrg nearMe" value="Near Me" name="gps">
