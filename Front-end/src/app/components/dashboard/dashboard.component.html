@@ -25,7 +25,7 @@
         <option value="entertainment">Entertainment</option>
       </select>
       <label for="search" class="sr-only">Search for location:</label>
-      <input id="searchField" [(ngModel)]="userLoc" type="text" placeholder="Search" class="input-sml" name="search">
+      <input id="searchField" [(ngModel)]="searchFilter" type="text" placeholder="Search" class="input-sml" name="search">
       <input (click)="onSearch()" type="submit" class="button-sml" value="Go">
       <a (click)="swapTags()" class="swapButton">Show/Hide Tags</a>
     </div>
