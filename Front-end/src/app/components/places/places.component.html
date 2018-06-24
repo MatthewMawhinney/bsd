@@ -1,8 +1,15 @@
 <ng-container *ngIf="searchFilter">
-  <ng-container *ngFor="let p of places; let i = index">
-    <ng-container *ngIf="i < maxPlaces">
+  <ng-container *ngIf="showFavs; else show_places">
+    <ng-container *ngFor="let p of favs; let i = index">
       <app-place [place]="p" (click)="onPlace(i)"></app-place>
     </ng-container>
   </ng-container>
+  <ng-template #show_places>
+    <ng-container *ngFor="let p of places; let i = index">
+      <ng-container *ngIf="i < maxPlaces">
+        <app-place [place]="p" (click)="onPlace(i)"></app-place>
+      </ng-container>
+    </ng-container>
+  </ng-template>
 </ng-container>
 

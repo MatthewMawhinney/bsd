@@ -12,13 +12,17 @@ export class PlacesComponent implements OnInit {
   searchFilter: string;
   maxPlaces = 10;
   places: Place[] = [];
+  favs: Place[] = [];
+  showFavs: boolean = false;
 
   constructor(private placeService: PlaceService, private comms: CommsService) {
   }
 
   ngOnInit() {
     this.placeService.getGooglePlaces().subscribe(data => this.places = data);
+    this.placeService.favs.subscribe(data => this.favs = data);
     this.comms.searchFilter.subscribe(data => this.searchFilter = data);
+    this.comms.showFavs.subscribe(data => this.showFavs = data);
   }
 
   onPlace(index: number) {

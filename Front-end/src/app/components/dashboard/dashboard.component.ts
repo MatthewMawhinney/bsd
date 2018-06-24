@@ -5,6 +5,9 @@ import {Router} from '@angular/router';
 import {CommsService} from '../../services/comms.service';
 import {LocationService} from '../../services/location.service';
 import {Geolocation} from '../search/geolocation';
+import {Place} from "../places/place";
+import {PlaceService} from "../../services/place.service";
+
 
 @Component({
   selector: 'app-dashboard',
@@ -16,23 +19,27 @@ export class DashboardComponent implements OnInit {
   userLoc: string;
   newSearch: boolean;
   searchFilter: string;
+  pinsButton = 'My Pins';
+  showFavs = false;
 
   constructor(
     private registerService: RegisterService,
     private router: Router,
     private flashMessage: FlashMessagesService,
     private comms: CommsService,
-    private locationService: LocationService
+    private locationService: LocationService,
+    private placeService: PlaceService
   ) {
   }
 
   ngOnInit() {
     this.comms.newSearch.subscribe(data => this.newSearch = data);
+    this.comms.showFavs.subscribe(data => this.showFavs = data)
   }
 
   swapTags() {
     let tags = document.getElementById("tags");
-    if(tags.classList.contains('hide')) {
+    if (tags.classList.contains('hide')) {
       tags.classList.remove('hide');
     } else {
       tags.classList.add('hide');
@@ -88,6 +95,21 @@ export class DashboardComponent implements OnInit {
     //this.flashMessage.show('You are now logged out.', { cssClass: 'flashValidate-suc', timeout: 5000 });
     this.router.navigate(['/']);
     return false;
+  }
+
+  onMyPinsClick() {
+    if (this.showFavs) {
+      this.comms.toggleFavs(false);
+      this.pinsButton = 'My Pins';
+    } else {
+      this.comms.toggleFavs(true);
+      this.pinsButton = 'Near Me';
+    }
+
+    let user = JSON.parse(localStorage.getItem("user"));
+    //console.log(user.id);
+
+    this.placeService.getFavs().subscribe();
   }
 
 }

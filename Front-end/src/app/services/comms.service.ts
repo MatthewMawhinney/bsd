@@ -19,6 +19,9 @@ export class CommsService {
   private selectedPlaceBehavior = new BehaviorSubject<number>(-1);
   selectedPlace = this.selectedPlaceBehavior.asObservable();
 
+  private showFavsBehavior = new BehaviorSubject<boolean>(false);
+  showFavs = this.showFavsBehavior.asObservable();
+
   constructor() {
   }
 
@@ -41,5 +44,13 @@ export class CommsService {
 
   changeSelectedPlace(selection: number) {
     this.selectedPlaceBehavior.next(selection);
+  }
+
+  toggleFavs(state: boolean) {
+    if (state) {
+      this.showFavsBehavior.next(true);
+    } else {
+      this.showFavsBehavior.next(false);
+    }
   }
 }

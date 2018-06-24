@@ -7,8 +7,8 @@
       </a>
     </div>
     <div class="float-right">
-      <a *ngIf="registerService.isValid()">
-        <button class="button-sml">My Pins</button>
+      <a *ngIf="registerService.isValid()" (click)="onMyPinsClick()">
+        <button class="button-sml">{{pinsButton}}</button>
       </a>
       <a *ngIf="registerService.isValid()" (click)="onLogoutClick()">
         <button class="button-sml-red">Logout</button>

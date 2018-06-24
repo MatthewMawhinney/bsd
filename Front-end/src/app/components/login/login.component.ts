@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { RegisterService } from '../../services/register.service';
-import { FlashMessagesService } from 'angular2-flash-messages';
-import { Router } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {RegisterService} from '../../services/register.service';
+import {FlashMessagesService} from 'angular2-flash-messages';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -17,9 +17,10 @@ export class LoginComponent implements OnInit {
     private registerService: RegisterService,
     private router: Router,
     private flashMessage: FlashMessagesService,
-  ) { }
+  ) {
+  }
 
-  ngOnInit(){
+  ngOnInit() {
   }
 
   onLoginSubmit() {
@@ -29,7 +30,7 @@ export class LoginComponent implements OnInit {
     }
 
     this.registerService.authenticateUser(user).subscribe(data => {
-      if(data.success) {
+      if (data.success) {
         this.registerService.storeUserData(data.token, data.user);
         this.router.navigate(['/']);
       } else {
