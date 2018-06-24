@@ -31,18 +31,14 @@ export class RegisterService {
     let headers = new Headers({ 'Content-Type': 'application/json' });
 
     return this.http
-      // TODO
-      // .post('users/register', user, { headers: headers })
-      .post('http://localhost:5000/users/register', user, { headers: headers })
+      .post('https://backseat.herokuapp.com/users/register', user, { headers: headers })
       .pipe(map((response: Response) => response.json()), catchError(this.handleError));
   }
 
   authenticateUser(user) {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     return this.http
-      // TODO
-      // .post('users/authenticate', user, { headers: headers })
-      .post('http://localhost:5000/users/authenticate', user, { headers: headers })
+      .post('https://backseat.herokuapp.com/users/authenticate', user, { headers: headers })
       .pipe(map((response: Response) => response.json()), catchError(this.handleError));
   }
 
