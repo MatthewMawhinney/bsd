@@ -1,6 +1,10 @@
 .place-one {
     background-color: #fff;
     border-bottom: 1px solid lightgrey;
+    cursor: pointer;
+}
+.place-one:hover {
+  background-color: #D3D3D3;
 }
 .place-one > div {
     display: inline-block;

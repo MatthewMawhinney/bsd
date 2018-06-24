@@ -1,10 +1,10 @@
-import { Component, OnInit, NgZone, DoCheck } from '@angular/core';
-import { CommsService } from '../../services/comms.service';
+import {Component, OnInit, NgZone, DoCheck} from '@angular/core';
+import {CommsService} from '../../services/comms.service';
 // import { } from 'googlemaps';
-import { MapsAPILoader } from '@agm/core';
-import { Geolocation } from '../../components/search/geolocation';
-import { Place } from '../places/place';
-import { PlaceService } from '../../services/place.service';
+import {MapsAPILoader} from '@agm/core';
+import {Geolocation} from '../../components/search/geolocation';
+import {Place} from '../places/place';
+import {PlaceService} from '../../services/place.service';
 
 declare let google: any;
 
@@ -29,9 +29,11 @@ export class MapComponent implements OnInit, DoCheck {
 
   places: Place[] = [];
 
+  selectedPlace = -1;
+
   constructor(private commsService: CommsService,
-    private mapsAPILoader: MapsAPILoader,
-    private placeService: PlaceService
+              private mapsAPILoader: MapsAPILoader,
+              private placeService: PlaceService
   ) {
   }
 
@@ -39,6 +41,7 @@ export class MapComponent implements OnInit, DoCheck {
     this.commsService.searchFilter.subscribe(data => this.searchFilter = data);
     this.commsService.searchLocation.subscribe(data => this.searchLocation = data);
     this.commsService.newSearch.subscribe(data => this.newSearch = data);
+    this.commsService.selectedPlace.subscribe(data => this.selectedPlace = data)
   }
 
   ngDoCheck() {
@@ -78,6 +81,12 @@ export class MapComponent implements OnInit, DoCheck {
     this.mapResults = response;
     this.lat = this.searchLocation.lat;
     this.lng = this.searchLocation.lng;
+  }
+
+  onMarkerClick(lat: number, lng: number, index: number) {
+    // this.lat = lat;
+    // this.lng = lng;
+    this.selectedPlace = index;
   }
 
 }
