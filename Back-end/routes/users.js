@@ -63,7 +63,7 @@ router.get('/getFavs', (req, res) => {
     // const uid = req.body.uid;
 
     // hard coded value will be replaced later
-    const uid = "5b29255b8b2a973a88a008bf";
+    const uid = "5b2fd20075b7f6169c1b2f94";
 
     User.getFavsByUserId(uid, (err, favs) => {
         if(err){
@@ -79,7 +79,7 @@ router.post('/updateFav', (req, res) => {
     // const place = req.body.place;
     
     // hard coded value will be replaced later
-    uid = "5b29255b8b2a973a88a008bf";
+    uid = "5b2fd20075b7f6169c1b2f94";
     place = {
         "geometry": {
             "location": {
