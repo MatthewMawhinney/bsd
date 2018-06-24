@@ -60,7 +60,7 @@ router.post('/authenticate', (req, res) => {
 // Get All Favorites Belongs to the UserId
 router.get('/getFavs', (req, res) => {
     // TODO: Get user id from frontend by body
-    // const id = req.body.uid;
+    // const uid = req.body.uid;
 
     // hard coded value will be replaced later
     const uid = "5b29255b8b2a973a88a008bf";
