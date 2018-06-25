@@ -15,9 +15,9 @@ const UserSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    favorites: {
+    favorites:{
         type: [],
-        required: true
+        required: false
     }
 });
 
