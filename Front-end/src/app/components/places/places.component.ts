@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Place} from "../places/place";
 import {PlaceService} from "../../services/place.service";
 import {CommsService} from "../../services/comms.service";
+import { FlashMessagesService } from 'angular2-flash-messages';
 
 @Component({
   selector: 'app-places',
@@ -15,8 +16,11 @@ export class PlacesComponent implements OnInit {
   favs: Place[] = [];
   showFavs: boolean = false;
 
-  constructor(private placeService: PlaceService, private comms: CommsService) {
-  }
+  constructor(
+    private placeService: PlaceService, 
+    private comms: CommsService, 
+    private flashMessage: FlashMessagesService
+  ) { }
 
   ngOnInit() {
     this.placeService.getGooglePlaces().subscribe(data => this.places = data);
@@ -28,5 +32,5 @@ export class PlacesComponent implements OnInit {
   onPlace(index: number) {
     this.comms.changeSelectedPlace(index);
   }
-
+  
 }

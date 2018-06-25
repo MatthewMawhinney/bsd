@@ -62,8 +62,8 @@ export class DashboardComponent implements OnInit {
       this.comms.toggleSearch(true);
     }, 100);
 
-    this.router.navigate(['/dashboard']);
-    console.log(this.searchFilter);
+      //this.router.navigate(['/dashboard']);
+      console.log(this.searchFilter);
   }
 
   // Clear search filter
@@ -92,7 +92,7 @@ export class DashboardComponent implements OnInit {
 
   onLogoutClick() {
     this.registerService.logout();
-    //this.flashMessage.show('You are now logged out.', { cssClass: 'flashValidate-suc', timeout: 5000 });
+    this.flashMessage.show('You are now logged out.', { cssClass: 'flashValidate-suc', timeout: 5000 });
     this.router.navigate(['/']);
     return false;
   }
@@ -107,9 +107,8 @@ export class DashboardComponent implements OnInit {
     }
 
     let user = JSON.parse(localStorage.getItem("user"));
-    //console.log(user.id);
 
-    this.placeService.getFavs().subscribe();
+    this.placeService.getFavs(user).subscribe();
   }
 
 }

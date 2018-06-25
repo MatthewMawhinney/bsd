@@ -28,6 +28,8 @@ export class PlaceService {
       place.types = response[i].types;
       place.opening_hours = response[i].opening_hours;
       place.icon = response[i].icon;
+      place.lat = response[i].geometry.location.lat();
+      place.lng = response[i].geometry.location.lng();
       placesHold.push(place);
     }
     this.placesBehavior.next(placesHold);
@@ -49,16 +51,19 @@ export class PlaceService {
     return throwError('Error Occured.');
   }
 
-  getFavs() {
+  getFavs(user) {
     let headers = new Headers({'Content-Type': 'application/json'});
-    return this.http
-    // TODO
-    // .post('users/authenticate', user, { headers: headers })
-      .get('http://localhost:5000/users/getFavs', {headers: headers})
+    return this.http.post('http://localhost:5000/users/getFavs', user, {headers: headers})
       .pipe(map((response: Response) => {
         let data = response.json();
         this.assignFavs(data.favorites)
       }), catchError(this.handleError));
+  }
+
+  updateFavs(place) {
+    let headers = new Headers({'Content-Type': 'application/json'});
+    return this.http.post('http://localhost:5000/users/addPin', place, { headers: headers })
+    .pipe(map((response: Response) => response.json()), catchError(this.handleError));
   }
 
   assignFavs(response: object) {

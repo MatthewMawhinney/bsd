@@ -31,13 +31,23 @@ export class HomeComponent implements OnInit {
   }
 
   onSearch() {
+    //if (this.searchFilter == undefined) {
+    //  this.flashMessage.show('Please enter a search', { cssClass: 'flashValidate-err', timeout: 5000 });
+    //  return false;
+    //}
+
+    //if (this.userLoc == undefined && this.gpsLocation == undefined) {
+    //  this.flashMessage.show('Please enter a location', { cssClass: 'flashValidate-err', timeout: 5000 });
+    //  return false;
+    //}
+
     if(document.getElementById("searchField").hasAttribute("disabled")) {
       this.gpsLocation = this.locationService.requestGeoLoc();
       this.comms.changeLocation(this.gpsLocation);
     } else {
       this.geocoding(this.userLoc);
     }
-    
+
     this.updateSearch(this.searchFilter);
 
     // this.comms.toggleSearch(true);

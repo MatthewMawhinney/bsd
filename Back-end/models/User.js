@@ -14,6 +14,10 @@ const UserSchema = mongoose.Schema({
     password: {
         type: String,
         required: true
+    },
+    favorites: {
+        type: [],
+        required: true
     }
 });
 
@@ -53,11 +57,5 @@ module.exports.getFavsByUserId = function(uid, callback) {
 
 // Create and Update Favorites for User Id
 module.exports.updateFav = function(uid, place, callback) {
-
-    let b = User.findOneAndUpdate(
-        { _id : uid },
-        { $addToSet : {favorites : place} },
-        { new : true },
-        callback
-    );
+    User.findOneAndUpdate({ _id: uid }, { $push: {favorites: place} }, {new: true}, callback);
 }

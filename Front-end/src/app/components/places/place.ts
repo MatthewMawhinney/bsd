@@ -7,4 +7,6 @@ export class Place {
   types: string[];
   vicinity: string;
   icon: string;
+  lat: any;
+  lng: any;
 }
