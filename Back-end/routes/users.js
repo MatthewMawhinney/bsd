@@ -81,48 +81,8 @@ router.post('/updateFav', (req, res) => {
     // hard coded value will be replaced later
     uid = "5b2fd20075b7f6169c1b2f94";
     place = {
-        "geometry": {
-            "location": {
-                "lat": 43.72474649999999,
-                "lng": -79.8009029
-            },
-            "viewport": {
-                "northeast": {
-                    "lat": 43.72622298029149,
-                    "lng": -79.79909946970848
-                },
-                "southwest": {
-                    "lat": 43.72352501970849,
-                    "lng": -79.8017974302915
-                }
-            }
-        },
-        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
-        "id": "7de8aa353368060de834f05788da333a5886413b",
-        "name": "Loafer's Lake Recreation Centre",
-        "opening_hours": {
-            "open_now": false,
-            "weekday_text": []
-        },
-        "photos": [
-            {
-                "height": 3040,
-                "html_attributions": [
-                    "<a href=\"https://maps.google.com/maps/contrib/102143845497921441064/photos\">Edward Fung<\/a>"
-                ],
-                "photo_reference": "CmRaAAAAE4PXiV_FIbunrpf4aG5RsEUjryzHFYbd58BNbd0yrH6lWQUG-V3FPHoFEjXabl1GbmocRL1jUQiCBs1xArrUU-9Le_SBLnmtknmXJcRMPCDFVwiQyBrBqkjrsJ4HIEhBEhCvt3uZM2jgjIQjwL0JDuF_GhRlBNOgKZT51EtWHOa2ds5JYtm2vg",
-                "width": 4056
-            }
-        ],
-        "place_id": "ChIJNYWLF5oWK4gRcQyRw8e1NNk",
-        "rating": 4.2,
-        "reference": "CmRSAAAACi7_BFywMejTJM5av9YwKmW6lcmreU97kQoGIjtxfU8oN6LpVGWpGcGA00DO7W6Pci7k7ZPf6cUB5ISfJmGNFzodbQNHm1HKWx3veeXiYr5KWsa8kMidSDIPrX6Ni4aHEhBgKLEydUKP2VK_bPUGLh63GhShzOFv80GUGqYs5nRPQfgqSSoxWQ",
-        "scope": "GOOGLE",
-        "types": [
-            "point_of_interest",
-            "establishment"
-        ],
-        "vicinity": "30 Loafers Lake Lane, Brampton"
+        "id": "2",
+        "vicinity": "A Subway"
     };
     
     User.updateFav(uid, place, (err, result) => {
