@@ -31,6 +31,9 @@ export class MapComponent implements OnInit, DoCheck {
 
   selectedPlace = -1;
 
+  favs: Place[];
+  showFav: boolean = false;
+
   constructor(private commsService: CommsService,
               private mapsAPILoader: MapsAPILoader,
               private placeService: PlaceService
@@ -41,15 +44,24 @@ export class MapComponent implements OnInit, DoCheck {
     this.commsService.searchFilter.subscribe(data => this.searchFilter = data);
     this.commsService.searchLocation.subscribe(data => this.searchLocation = data);
     this.commsService.newSearch.subscribe(data => this.newSearch = data);
-    this.commsService.selectedPlace.subscribe(data => this.selectedPlace = data)
+    this.commsService.selectedPlace.subscribe(data => this.selectedPlace = data);
+    this.commsService.showFavs.subscribe(data => this.showFav = data);
   }
 
   ngDoCheck() {
+    console.log("inside ngDoCheck");
+    console.log(this.newSearch);
+    console.log(this.searchLocation);
     if (this.newSearch) {
+      console.log('inside IF ngDoCheck');
       this.loc = new google.maps.LatLng(this.searchLocation.lat, this.searchLocation.lng);
       this.setPlaces();
       this.commsService.toggleSearch(false);
     }
+    if (!this.favs) {
+      this.placeService.favs.subscribe(data => this.favs = data);
+    }
+
   }
 
   getPlaces() {

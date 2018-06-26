@@ -16,7 +16,7 @@ import {PlaceService} from "../../services/place.service";
 })
 export class DashboardComponent implements OnInit {
 
-  userLoc: string;
+  userLoc: Geolocation;
   newSearch: boolean;
   searchFilter: string;
   pinsButton = 'My Pins';
@@ -35,6 +35,9 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.comms.newSearch.subscribe(data => this.newSearch = data);
     this.comms.showFavs.subscribe(data => this.showFavs = data)
+    // this.comms.searchLocation.subscribe(data =>{ this.userLoc = data})
+    console.log('inside init dash, userLoc:');
+    // setTimeout(()=>{console.log(this.comms.searchLocation)},100);
   }
 
   swapTags() {
@@ -47,52 +50,20 @@ export class DashboardComponent implements OnInit {
   }
 
   onSearch() {
-    /*if (document.getElementById("searchField").hasAttribute("disabled")) {
-      this.gpsLocation = this.locationService.requestGeoLoc();
-      this.comms.changeLocation(this.gpsLocation);
-    } else {*/
-    //this.geocoding(this.userLoc);
-    //}
-
     this.comms.changeSearch(this.searchFilter);
-    //this.updateSearch(this.searchFilter);
-
-    // this.comms.toggleSearch(true);
     setTimeout(() => {
       this.comms.toggleSearch(true);
     }, 100);
-
-      //this.router.navigate(['/dashboard']);
-      console.log(this.searchFilter);
+    setTimeout(() => {
+      this.comms.toggleFavs(false);
+      this.comms.changeSelectedPlace(-1);
+    }, 500);
+    //console.log(this.searchFilter);
   }
-
-  // Clear search filter
-  // clearSearch() {
-  //   this.updateSearch('');
-  // }
-
-  // Function to update 'search' in CommsService
-  // updateSearch(search: string) {
-  //   this.comms.changeSearch(search);
-  // }
-
-  // public geocoding(userLoc: string) {
-  //   // pass the current location to MapService.geocoding()
-  //   this.locationService.geocoding(userLoc).then(
-  //     rtn => {
-  //       const location = rtn[0].geometry.location;
-  //       // get lat and long and then assign to the props
-  //       const latlng: Geolocation = new Geolocation();
-  //       latlng.lat = location.lat();
-  //       latlng.lng = location.lng();
-  //       this.comms.changeLocation(latlng);
-  //     }
-  //   );
-  // }
 
   onLogoutClick() {
     this.registerService.logout();
-    this.flashMessage.show('You are now logged out.', { cssClass: 'flashValidate-suc', timeout: 5000 });
+    this.flashMessage.show('You are now logged out.', {cssClass: 'flashValidate-suc', timeout: 5000});
     this.router.navigate(['/']);
     return false;
   }
@@ -105,9 +76,8 @@ export class DashboardComponent implements OnInit {
       this.comms.toggleFavs(true);
       this.pinsButton = 'Near Me';
     }
-
+    this.comms.changeSelectedPlace(-1);
     let user = JSON.parse(localStorage.getItem("user"));
-
     this.placeService.getFavs(user).subscribe();
   }
 

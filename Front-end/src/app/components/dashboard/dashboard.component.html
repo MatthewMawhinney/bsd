@@ -20,17 +20,21 @@
   </nav>
   <div class="places">
     <div class="search-inputs">
-      <label for="search" class="sr-only">Search for location:</label>
-      <input id="searchField" [(ngModel)]="searchFilter" type="text" placeholder="Search" class="input-sml filter" name="search">
+      <label for="searchField" class="sr-only">Search for location:</label>
+      <input id="searchField" [(ngModel)]="searchFilter" type="text" placeholder="Search" class="input-sml filter"
+             name="search">
       <input (click)="onSearch()" type="submit" class="button-sml" value="Go">
-      <p>Results:</p>
+      <ng-container *ngIf="showFavs; else searchResults">
+        <p>My Pins:</p>
+      </ng-container>
+      <ng-template #searchResults>
+        <p>Search Results:</p>
+      </ng-template>
       <a (click)="swapTags()" class="swapButton"><p>Show/Hide Tags</p></a>
     </div>
   </div>
   <div id="tags" class="tags">
     <app-places></app-places>
   </div>
-  <!--<div class="map">-->
   <app-map class="map"></app-map>
-  <!--</div>-->
 </div>

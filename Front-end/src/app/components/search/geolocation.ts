@@ -7,7 +7,7 @@ export class Geolocation {
     wpid: number;
     geo_options: object = {
         enableHighAccuracy: true,
-        maximumAge: 15000,
-        timeout: 12000
+        maximumAge: 500,
+        timeout: 500
     };
 }

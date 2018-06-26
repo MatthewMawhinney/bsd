@@ -27,7 +27,8 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.comms.newSearch.subscribe(data => this.newSearch = data);
+    // this.comms.newSearch.subscribe(data => this.newSearch = data);
+    // this.locationService.userGeoLoc.then(data => this.gpsLocation = data);
   }
 
   onSearch() {
@@ -40,22 +41,26 @@ export class HomeComponent implements OnInit {
     //  this.flashMessage.show('Please enter a location', { cssClass: 'flashValidate-err', timeout: 5000 });
     //  return false;
     //}
+    // this.locationService.userGeoLoc.
 
     if(document.getElementById("searchField").hasAttribute("disabled")) {
-      this.gpsLocation = this.locationService.requestGeoLoc();
-      this.comms.changeLocation(this.gpsLocation);
+      // this.gpsLocation = this.locationService.requestGeoLoc();
+      // this.comms.changeLocation(this.gpsLocation);
+      this.locationService.requestGeoLoc();
     } else {
       this.geocoding(this.userLoc);
+      // this.gpsLocation = this.geocoding(this.userLoc);
+      // this.comms.changeLocation(this.gpsLocation);
     }
 
     this.updateSearch(this.searchFilter);
 
     // this.comms.toggleSearch(true);
-    setTimeout(() => {
-      this.comms.toggleSearch(true);
-    }, 100);
+    // setTimeout(() => {
+    //   this.comms.toggleSearch(true);
+    // }, 100);
 
-    this.router.navigate(['/dashboard']);
+    // this.router.navigate(['/dashboard']);
   }
 
   // Clear search filter
@@ -68,18 +73,23 @@ export class HomeComponent implements OnInit {
     this.comms.changeSearch(search);
   }
 
-  public geocoding(userLoc: string) {
+  public geocoding(userLoc: string) : Geolocation {
+    const latlng: Geolocation = new Geolocation();
     // pass the current location to MapService.geocoding()
-    this.locationService.geocoding(userLoc).then(
-      rtn => {
-        const location = rtn[0].geometry.location;
-        // get lat and long and then assign to the props
-        const latlng: Geolocation = new Geolocation();
-        latlng.lat = location.lat();
-        latlng.lng = location.lng();
-        this.comms.changeLocation(latlng);
-      }
-    );
+    this.locationService.geocoding(userLoc);
+    // .then(
+      // rtn => {
+      //   console.log(rtn);
+        
+      //   const location = rtn[0].geometry.location;
+      //   // get lat and long and then assign to the props
+      //   latlng.lat = location.lat();
+      //   latlng.lng = location.lng();
+      //   // this.comms.changeLocation(latlng);
+      // }
+    // );
+    return latlng;
+  
   }
 
   useGps() {

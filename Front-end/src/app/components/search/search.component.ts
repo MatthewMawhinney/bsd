@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { CommsService } from '../../services/comms.service';
+import {Component, OnInit} from '@angular/core';
+import {CommsService} from '../../services/comms.service';
 // import { MapService } from './user-location/map.service';
-import { LocationService } from '../../services/location.service';
-import { Geolocation } from './geolocation';
+import {LocationService} from '../../services/location.service';
+import {Geolocation} from './geolocation';
 
 @Component({
   selector: 'app-search',
@@ -11,10 +11,8 @@ import { Geolocation } from './geolocation';
 })
 export class SearchComponent implements OnInit {
   searchFilter: string;
-
   userLoc: string;
   gpsLocation: Geolocation;
-
   newSearch: boolean;
 
   constructor(private comms: CommsService, private locationService: LocationService) {
@@ -23,8 +21,7 @@ export class SearchComponent implements OnInit {
   ngOnInit() {
     this.comms.newSearch.subscribe(data => this.newSearch = data);
   }
-
-
+  
   onSearch() {
     if (document.getElementById('gps').classList.contains('btn-success')) {
       this.gpsLocation = this.locationService.requestGeoLoc();
@@ -41,21 +38,9 @@ export class SearchComponent implements OnInit {
     }, 100);
   }
 
-  // Clear search filter
-  clearSearch() {
-    this.updateSearch('');
-  }
-
   // Function to update 'search' in CommsService
   updateSearch(search: string) {
     this.comms.changeSearch(search);
-  }
-
-  // Accepts new search though Enter key press
-  onKeyPress(event: KeyboardEvent) {
-    if (event.code === 'Enter') {
-      this.updateSearch(this.searchFilter);
-    }
   }
 
   // Take user input value (address, city, postal code... and turn to lat&long)
