@@ -15,11 +15,8 @@ import {PlaceService} from "../../services/place.service";
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-<<<<<<< HEAD
 
   userLoc: Geolocation;
-=======
->>>>>>> master
   newSearch: boolean;
   searchFilter: string;
   pinsButton = 'My Pins';
