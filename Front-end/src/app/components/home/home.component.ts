@@ -84,17 +84,7 @@ export class HomeComponent implements OnInit {
     const latlng: Geolocation = new Geolocation();
     // pass the current location to MapService.geocoding()
     this.locationService.geocoding(userLoc);
-    // .then(
-      // rtn => {
-      //   console.log(rtn);
-        
-      //   const location = rtn[0].geometry.location;
-      //   // get lat and long and then assign to the props
-      //   latlng.lat = location.lat();
-      //   latlng.lng = location.lng();
-      //   // this.comms.changeLocation(latlng);
-      // }
-    // );
+
     return latlng;
   
   }

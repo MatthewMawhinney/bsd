@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Geolocation } from '../components/search/geolocation';
-import { Observable, of, BehaviorSubject } from 'rxjs';
 import { MapsAPILoader } from '@agm/core';
 import { CommsService } from './comms.service';
 import { Router } from '@angular/router';
@@ -48,10 +47,9 @@ export class LocationService {
                 this.router.navigate(['/dashboard']);
             },
             ()=>{
-              // console.log('rejected')
+              console.log('rejected')
             }
           );
-          // this.commsService.changeLocation(location);
         },
         (error) => {
           console.log(error.code);// CODE IS 1 WHEN USER DENIES PERMISSION
@@ -82,30 +80,14 @@ export class LocationService {
           } else {
             reject(status);
           }
-          // this.geoLoc.next(latlng);
           this.commsService.changeLocation(latlng)
-          // .then(
-          //   () => {
-          //     console.log('change now promise')
-          //     setTimeout(() => {
-          //       console.log('inside timeout');
-          //       this.commsService.toggleSearch(true);
-          //     }, 100);
-
-          //     this.router.navigate(['/dashboard'])
-          //   },
-          //   () => {
-          //     console.log('rejected')
-          //   }
-          // )
-          // this.commsService.changeLocation(latlng);
         });
       });
     }).then(
       () => {
-              console.log('change now promise')
+              // console.log('change now promise')
               setTimeout(() => {
-                console.log('inside timeout');
+                // console.log('inside timeout');
                 this.commsService.toggleSearch(true);
               }, 100);
 

@@ -7,7 +7,7 @@ import {Place} from '../places/place';
 import {PlaceService} from '../../services/place.service';
 import {FlashMessagesService} from 'angular2-flash-messages';
 import { Router } from '@angular/router';
-import { CompileNgModuleMetadata } from '@angular/compiler';
+// import { CompileNgModuleMetadata } from '@angular/compiler';
 declare let google: any;
 
 @Component({

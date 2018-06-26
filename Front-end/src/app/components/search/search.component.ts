@@ -32,7 +32,7 @@ export class SearchComponent implements OnInit {
 
     this.updateSearch(this.searchFilter);
 
-    // this.comms.toggleSearch(true);
+ 
     setTimeout(() => {
       this.comms.toggleSearch(true);
     }, 100);
