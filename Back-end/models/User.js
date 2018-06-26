@@ -63,5 +63,5 @@ module.exports.getFavsByUserId = function(uid, callback) {
 
 // Create and Update Favorites for User Id
 module.exports.updateFav = function(uid, place, callback) {
-    User.findOneAndUpdate({ _id: uid }, { $push: {favorites: place} }, {new: true}, callback);
+    User.findOneAndUpdate({ _id: uid }, { $addToSet : {favorites: place} }, {new: true}, callback);
 }
