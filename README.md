@@ -1,7 +1,7 @@
 # Backseat Driver
 
 Backseat Driver is an application built with Node.js, MongoDB, Angular2, and Express, known to developers as the MEAN Stack. 
-BSD is hosted through heroku and can be found at https://www.bsdriver.herokuapp.com
+BSD is hosted through heroku and can be found at [Backseat Driver](https://bsdriver.herokuapp.com).
 
 ![alt text](https://mattmawhinney.com/imgs/BSD_Home.png "Backseat Driver Home Page")
 
