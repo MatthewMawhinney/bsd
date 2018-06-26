@@ -67,9 +67,6 @@ export class PlaceService {
   }
 
   assignFavs(response: object) {
-    //console.log(response)
-    //response = response.favorites;
-    //console.log(response)
     const favesHold: Place[] = [];
     for (let i in response) {
       const place = new Place();

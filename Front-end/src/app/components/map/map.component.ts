@@ -55,9 +55,7 @@ export class MapComponent implements OnInit, DoCheck {
       this.commsService.toggleSearch(false);
     }
     if (!this.favs) {
-      console.log('hit');
       this.placeService.favs.subscribe(data => this.favs = data);
-      console.log(this.favs);
     }
 
   }
