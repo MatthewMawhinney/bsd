@@ -62,8 +62,8 @@ export class PlaceService {
 
   updateFavs(place) {
     let headers = new Headers({'Content-Type': 'application/json'});
-    return this.http.post('http://localhost:5000/users/addPin', place, { headers: headers })
-    .pipe(map((response: Response) => response.json()), catchError(this.handleError));
+    return this.http.post('http://localhost:5000/users/addPin', place, {headers: headers})
+      .pipe(map((response: Response) => response.json()), catchError(this.handleError));
   }
 
   assignFavs(response: object) {
@@ -81,6 +81,8 @@ export class PlaceService {
       place.types = response[i].types;
       place.opening_hours = response[i].opening_hours;
       place.icon = response[i].icon;
+      place.lat = response[i].lat;
+      place.lng = response[i].lng;
       favesHold.push(place);
     }
     this.favsBehavior.next(favesHold);

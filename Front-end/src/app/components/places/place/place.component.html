@@ -36,5 +36,8 @@
     <ng-container *ngIf="!showFav">
       <button (click)="addPin(place)" class="button-sml-grn">Pin</button>
     </ng-container>
+    <ng-container>
+      <a href="https://www.google.com/maps/dir/?api=1&destination={{place.vicinity}}" class="btn button-sml">Go To!</a>
+    </ng-container>
   </div>
 </div>
