@@ -33,12 +33,14 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
+
     this.comms.newSearch.subscribe(data => this.newSearch = data);
     this.comms.showFavs.subscribe(data => this.showFavs = data)
     // this.comms.searchLocation.subscribe(data =>{ this.userLoc = data})
-    console.log('inside init dash, userLoc:');
-    console.log(this.searchFilter);
+    // console.log('inside init dash, userLoc:');
+    // console.log(this.searchFilter);
   }
+
 
   swapTags() {
     let tags = document.getElementById("tags");
@@ -58,8 +60,8 @@ export class DashboardComponent implements OnInit {
       this.comms.toggleFavs(false);
       this.comms.changeSelectedPlace(-1);
     }, 500);
-    console.log('inside onsearch');
-    console.log(this.searchFilter);
+    // console.log('inside onsearch');
+    // console.log(this.searchFilter);
   }
 
   onLogoutClick() {

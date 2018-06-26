@@ -37,17 +37,17 @@ export class CommsService {
 
   // Get latitude and longitude from typed value
   changeLocation(location: Geolocation) {
-    console.log('change location');
+    // console.log('change location');
     
     this.location.next(location);//Pass Object with lat and lng
                 // this.toggleSearch(true);
     // this.router.navigate(['/dashboard']);
 
-    console.log(this.location);
+    // console.log(this.location);
   }
 
   changeNow(location: Geolocation){
-    console.log("inside change Now")
+    // console.log("inside change Now")
     return new Promise ((success, fail) =>{
         this.location.next(location);//Pass Object with lat and lng
         success();

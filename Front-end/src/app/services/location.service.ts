@@ -37,10 +37,10 @@ export class LocationService {
           location.lat = position.coords.latitude;
           location.lng = position.coords.longitude;
           location.accuracy = position.coords.accuracy.valueOf();
-          console.log(position);
+          // console.log(position);
           this.commsService.changeNow(location).then(
             ()=>{
-              console.log('change now promise')
+              // console.log('change now promise')
               setTimeout(() => {
                 this.commsService.toggleSearch(true);
                 }, 100);
@@ -48,7 +48,7 @@ export class LocationService {
                 this.router.navigate(['/dashboard']);
             },
             ()=>{
-              console.log('rejected')
+              // console.log('rejected')
             }
           );
           // this.commsService.changeLocation(location);
@@ -56,7 +56,7 @@ export class LocationService {
         (error) => {
           console.log(error.code);// CODE IS 1 WHEN USER DENIES PERMISSION
           console.log(error.message);
-          console.log(error.PERMISSION_DENIED);
+          // console.log(error.PERMISSION_DENIED);
         });
     } else {
       alert('geolocation unavailable');

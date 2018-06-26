@@ -1,11 +1,13 @@
-import {Component, OnInit, NgZone, DoCheck} from '@angular/core';
+import {Component, OnInit, NgZone, DoCheck, AfterViewInit} from '@angular/core';
 import {CommsService} from '../../services/comms.service';
 // import { } from 'googlemaps';
 import {MapsAPILoader} from '@agm/core';
 import {Geolocation} from '../../components/search/geolocation';
 import {Place} from '../places/place';
 import {PlaceService} from '../../services/place.service';
-
+import {FlashMessagesService} from 'angular2-flash-messages';
+import { Router } from '@angular/router';
+import { CompileNgModuleMetadata } from '@angular/compiler';
 declare let google: any;
 
 @Component({
@@ -13,7 +15,7 @@ declare let google: any;
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.css']
 })
-export class MapComponent implements OnInit, DoCheck {
+export class MapComponent implements OnInit, DoCheck, AfterViewInit {
   searchFilter = '';
   searchLocation: Geolocation;
   loc: object;
@@ -36,7 +38,9 @@ export class MapComponent implements OnInit, DoCheck {
 
   constructor(private commsService: CommsService,
               private mapsAPILoader: MapsAPILoader,
-              private placeService: PlaceService
+              private placeService: PlaceService,
+              private flashMessages: FlashMessagesService,
+              private router : Router
   ) {
   }
 
@@ -48,12 +52,18 @@ export class MapComponent implements OnInit, DoCheck {
     this.commsService.showFavs.subscribe(data => this.showFav = data);
   }
 
+
+  ngAfterViewInit() {
+
+    if (!this.searchLocation.lat) {
+      this.router.navigate(['/']);
+    }
+  }
+
   ngDoCheck() {
-    console.log("inside ngDoCheck");
-    console.log(this.newSearch);
-    console.log(this.searchLocation);
+
     if (this.newSearch) {
-      console.log('inside IF ngDoCheck');
+
       this.loc = new google.maps.LatLng(this.searchLocation.lat, this.searchLocation.lng);
       this.setPlaces();
       this.commsService.toggleSearch(false);
@@ -80,15 +90,22 @@ export class MapComponent implements OnInit, DoCheck {
           if (status === google.maps.places.PlacesServiceStatus.OK) {
             // console.log(results);
             resolve(results);
+          } else {
+            // console.log(status);
+            // console.log('inside else of search');
+            this.flashMessages.show('Your search returned no results, try again', {cssClass: 'flashValidate-err', timeout: 5000});
           }
         });
+      }, reject => {
+        // console.log('rejected')
+        reject();
       });
     });
   }
 
   async setPlaces() {
     const response = <object>await this.getPlaces();
-    console.log(response);
+    // console.log(response);
     this.placeService.setGooglePlaces(response);
     this.mapResults = response;
     this.lat = this.searchLocation.lat;

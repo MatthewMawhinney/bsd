@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit {
     //  this.flashMessage.show('Please enter a search', { cssClass: 'flashValidate-err', timeout: 5000 });
     //  return false;
     //}
-    console.log(this.userLoc);
+    // console.log(this.userLoc);
 
     // if (this.userLoc == undefined && this.gpsLocation == undefined) {
     //  this.flashMessage.show('Please enter a location', { cssClass: 'flashValidate-err', timeout: 5000 });
@@ -74,8 +74,8 @@ export class HomeComponent implements OnInit {
 
   // Function to update 'search' in CommsService
   updateSearch(search: string) {
-    console.log('inside home updatesearch');
-    console.log(search);
+    // console.log('inside home updatesearch');
+    // console.log(search);
     
     this.comms.changeSearch(search);
   }
