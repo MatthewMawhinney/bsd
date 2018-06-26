@@ -96,7 +96,7 @@
 .filter {
     width: 250px;
 }
-@media all and (max-width: 390px) {
+@media all and (max-width: 600px) {
     .places {
         width: 100%;
         height: 90px;
@@ -121,5 +121,28 @@
     }
     .swapButton {
         display: block;
+    }
+    .filter {
+        width: 400px;
+    }
+}
+@media all and (max-width: 520px) {
+    .filter {
+        width: 350px;
+    }
+}
+@media all and (max-width: 465px) {
+    .filter {
+        width: 300px;
+    }
+}
+@media all and (max-width: 420px) {
+    .filter {
+        width: 240px;
+    }
+}
+@media all and (max-width: 350px) {
+    .filter {
+        width: 200px;
     }
 }
