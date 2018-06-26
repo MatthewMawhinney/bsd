@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="65531662-c334-4f02-8184-bc37c82e65d4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/app/components/dashboard/dashboard.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/app/components/dashboard/dashboard.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/app/components/dashboard/dashboard.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/app/components/dashboard/dashboard.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/app/components/map/map.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/app/components/map/map.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Front-end/src/app/components/map/map.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/app/components/map/map.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/app/components/map/map.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/app/components/map/map.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/app/components/places/place/place.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/app/components/places/place/place.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/app/components/places/place/place.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/app/components/places/place/place.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/app/components/search/search.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/app/components/search/search.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/app/components/search/search.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/app/components/search/search.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-end/src/app/services/place.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front-end/src/app/services/place.service.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -47,11 +37,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="map.component.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="map.component.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Front-end/src/app/components/map/map.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
+            <state relative-caret-position="238">
               <caret line="57" column="65" selection-start-line="57" selection-start-column="65" selection-end-line="57" selection-end-column="65" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="place.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Front-end/src/app/components/places/place/place.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="17" column="2" selection-start-line="17" selection-start-column="2" selection-end-line="19" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="map.component.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Front-end/src/app/components/map/map.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="11" column="90" selection-start-line="11" selection-start-column="90" selection-end-line="11" selection-end-column="90" />
             </state>
           </provider>
         </entry>
@@ -92,13 +100,13 @@
         <option value="$PROJECT_DIR$/Front-end/src/app/components/map/map.component.css" />
         <option value="$PROJECT_DIR$/Front-end/src/app/components/dashboard/dashboard.component.html" />
         <option value="$PROJECT_DIR$/Front-end/src/app/components/places/place/place.component.ts" />
-        <option value="$PROJECT_DIR$/Front-end/src/app/components/map/map.component.html" />
         <option value="$PROJECT_DIR$/Front-end/src/app/services/place.service.ts" />
         <option value="$PROJECT_DIR$/Front-end/src/app/components/search/search.component.html" />
         <option value="$PROJECT_DIR$/Front-end/src/app/components/search/search.component.ts" />
         <option value="$PROJECT_DIR$/Front-end/src/app/components/home/home.component.ts" />
         <option value="$PROJECT_DIR$/Front-end/src/app/components/dashboard/dashboard.component.ts" />
         <option value="$PROJECT_DIR$/Front-end/src/app/components/map/map.component.ts" />
+        <option value="$PROJECT_DIR$/Front-end/src/app/components/map/map.component.html" />
       </list>
     </option>
   </component>
@@ -283,21 +291,21 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37808000" />
+    <option name="totallyTimeSpent" value="39186000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1702" height="1057" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TypeScript" order="10" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18629807" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18629807" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.3297062" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.3297062" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.3297062" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Version Control" order="15" />
@@ -579,13 +587,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Front-end/src/app/components/places/place/place.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="7" lean-forward="true" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Front-end/src/app/components/map/map.component.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -597,13 +598,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
           <caret line="25" column="40" lean-forward="true" selection-start-line="25" selection-start-column="40" selection-end-line="25" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Front-end/src/app/components/map/map.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="64" lean-forward="true" selection-start-line="10" selection-start-column="64" selection-end-line="10" selection-end-column="64" />
         </state>
       </provider>
     </entry>
@@ -673,8 +667,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Front-end/src/app/components/map/map.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
+        <state relative-caret-position="238">
           <caret line="57" column="65" selection-start-line="57" selection-start-column="65" selection-end-line="57" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Front-end/src/app/components/places/place/place.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="2" selection-start-line="17" selection-start-column="2" selection-end-line="19" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Front-end/src/app/components/map/map.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="11" column="90" selection-start-line="11" selection-start-column="90" selection-end-line="11" selection-end-column="90" />
         </state>
       </provider>
     </entry>

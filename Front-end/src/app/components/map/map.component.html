@@ -9,7 +9,7 @@
           <agm-info-window [isOpen]="selectedPlace === i">
             <div class="infoName">{{ marker.name }}</div>
             <!--<img class="infoIcon" src="{{marker.icon}}" width="30px;"/>-->
-            <div class="infoRating"> Rating: <span>{{ marker.rating }}</span></div>
+            <div class="infoRating"> Rating: <span>{{ !marker.rating ? '0' : marker.rating }}</span></div>
             <ng-container *ngIf="marker.opening_hours != undefined">
               <ng-container *ngIf="marker.opening_hours.open_now == true">
                 <div class="suc-text">Open Now!</div>
@@ -35,7 +35,7 @@
             <agm-info-window [isOpen]="selectedPlace === i">
               <div class="infoName">{{ marker.name }}</div>
               <!--<img class="infoIcon" src="{{marker.icon}}" width="30px;"/>-->
-              <div class="infoRating"> Rating: <span>{{ marker.rating }}</span></div>
+              <div class="infoRating"> Rating: <span>{{ !marker.rating ? '0' : marker.rating }}</span></div>
               <ng-container *ngIf="marker.opening_hours != undefined">
                 <ng-container *ngIf="marker.opening_hours.open_now == true">
                   <div class="suc-text">Open Now!</div>
