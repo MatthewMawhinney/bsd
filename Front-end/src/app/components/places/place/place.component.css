@@ -54,3 +54,8 @@
 .great-rating {
     background-color: green;
 }
+.button-sml-grn {
+    margin: 3px;
+    padding: 5px 10px;
+    height: 40px;
+}
