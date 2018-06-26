@@ -1,11 +1,11 @@
 <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [scrollwheel]="true">
   <ng-container *ngIf="mapResults">
     <!--< agm - marker[latitude]="lat"[longitude] = "lng" > </agm-marker>-->
-    <ng-container *ngFor="let marker of mapResults; let i = index">
-      <ng-container *ngIf="i < maxMarkers">
-        <agm-marker [latitude]="marker.geometry.location.lat()"
-                    [longitude]="marker.geometry.location.lng()"
-                    (markerClick)="onMarkerClick(marker.geometry.location.lat(), marker.geometry.location.lng(), i)"
+    <ng-container *ngIf="showFav; else show_places">
+      <ng-container *ngFor="let marker of favs; let i = index">
+        <agm-marker [latitude]="marker.lat"
+                    [longitude]="marker.lng"
+                    (markerClick)="onMarkerClick(marker.lat, marker.lng, i)"
                     [openInfoWindow]="false">
           <agm-info-window [isOpen]="selectedPlace === i">
             <img src="{{marker.icon}}" width="20px;"/> {{ marker.name }}
@@ -14,6 +14,21 @@
         </agm-marker>
       </ng-container>
     </ng-container>
+    <ng-template #show_places>
+      <ng-container *ngFor="let marker of mapResults; let i = index">
+        <ng-container *ngIf="i < maxMarkers">
+          <agm-marker [latitude]="marker.geometry.location.lat()"
+                      [longitude]="marker.geometry.location.lng()"
+                      (markerClick)="onMarkerClick(marker.geometry.location.lat(), marker.geometry.location.lng(), i)"
+                      [openInfoWindow]="false">
+            <agm-info-window [isOpen]="selectedPlace === i">
+              <img src="{{marker.icon}}" width="20px;"/> {{ marker.name }}
+              <div>Rating: {{ marker.rating }}</div>
+            </agm-info-window>
+          </agm-marker>
+        </ng-container>
+      </ng-container>
+    </ng-template>
   </ng-container>
   <!--< agm - marker[latitude]="lat" [longitude]="lng" * ngIf="locationChosen"> </agm-marker>-->
 </agm-map>
