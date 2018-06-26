@@ -1,4 +1,4 @@
-<ng-container *ngIf="searchFilter">
+<ng-container>
   <ng-container *ngIf="showFavs; else show_places">
     <ng-container *ngFor="let p of favs; let i = index">
       <app-place [place]="p" (click)="onPlace(i)"></app-place>

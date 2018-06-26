@@ -37,7 +37,7 @@ export class DashboardComponent implements OnInit {
     this.comms.showFavs.subscribe(data => this.showFavs = data)
     // this.comms.searchLocation.subscribe(data =>{ this.userLoc = data})
     console.log('inside init dash, userLoc:');
-    // setTimeout(()=>{console.log(this.comms.searchLocation)},100);
+    console.log(this.searchFilter);
   }
 
   swapTags() {
@@ -58,7 +58,8 @@ export class DashboardComponent implements OnInit {
       this.comms.toggleFavs(false);
       this.comms.changeSelectedPlace(-1);
     }, 500);
-    //console.log(this.searchFilter);
+    console.log('inside onsearch');
+    console.log(this.searchFilter);
   }
 
   onLogoutClick() {

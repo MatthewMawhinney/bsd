@@ -36,21 +36,25 @@ export class HomeComponent implements OnInit {
     //  this.flashMessage.show('Please enter a search', { cssClass: 'flashValidate-err', timeout: 5000 });
     //  return false;
     //}
+    console.log(this.userLoc);
 
-    //if (this.userLoc == undefined && this.gpsLocation == undefined) {
+    // if (this.userLoc == undefined && this.gpsLocation == undefined) {
     //  this.flashMessage.show('Please enter a location', { cssClass: 'flashValidate-err', timeout: 5000 });
     //  return false;
-    //}
+    // }
     // this.locationService.userGeoLoc.
 
     if(document.getElementById("searchField").hasAttribute("disabled")) {
       // this.gpsLocation = this.locationService.requestGeoLoc();
       // this.comms.changeLocation(this.gpsLocation);
       this.locationService.requestGeoLoc();
-    } else {
+    } else if (this.userLoc){
       this.geocoding(this.userLoc);
       // this.gpsLocation = this.geocoding(this.userLoc);
       // this.comms.changeLocation(this.gpsLocation);
+    } else {
+      this.flashMessage.show('Please enter a location', { cssClass: 'flashValidate-err', timeout: 5000 });
+      return false;
     }
 
     this.updateSearch(this.searchFilter);
@@ -70,6 +74,9 @@ export class HomeComponent implements OnInit {
 
   // Function to update 'search' in CommsService
   updateSearch(search: string) {
+    console.log('inside home updatesearch');
+    console.log(search);
+    
     this.comms.changeSearch(search);
   }
 
