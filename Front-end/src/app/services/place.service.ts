@@ -53,7 +53,7 @@ export class PlaceService {
 
   getFavs(user) {
     let headers = new Headers({'Content-Type': 'application/json'});
-    return this.http.post('http://localhost:5000/users/getFavs', user, {headers: headers})
+    return this.http.post('https://backseat.herokuapp.com/users/getFavs', user, {headers: headers})
       .pipe(map((response: Response) => {
         let data = response.json();
         this.assignFavs(data.favorites)
@@ -62,7 +62,7 @@ export class PlaceService {
 
   updateFavs(place) {
     let headers = new Headers({'Content-Type': 'application/json'});
-    return this.http.post('http://localhost:5000/users/addPin', place, {headers: headers})
+    return this.http.post('https://backseat.herokuapp.com/users/addPin', place, {headers: headers})
       .pipe(map((response: Response) => response.json()), catchError(this.handleError));
   }
 
