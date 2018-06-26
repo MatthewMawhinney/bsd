@@ -1,6 +1,5 @@
 <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [scrollwheel]="true">
   <ng-container *ngIf="mapResults">
-    <!--< agm - marker[latitude]="lat"[longitude] = "lng" > </agm-marker>-->
     <ng-container *ngIf="showFav; else show_places">
       <ng-container *ngFor="let marker of favs; let i = index">
         <agm-marker [latitude]="marker.lat"
@@ -8,8 +7,20 @@
                     (markerClick)="onMarkerClick(marker.lat, marker.lng, i)"
                     [openInfoWindow]="false">
           <agm-info-window [isOpen]="selectedPlace === i">
-            <img src="{{marker.icon}}" width="20px;"/> {{ marker.name }}
-            <div>Rating: {{ marker.rating }}</div>
+            <div class="infoName">{{ marker.name }}</div>
+            <!--<img class="infoIcon" src="{{marker.icon}}" width="30px;"/>-->
+            <div class="infoRating"> Rating: <span>{{ marker.rating }}</span></div>
+            <ng-container *ngIf="marker.opening_hours != undefined">
+              <ng-container *ngIf="marker.opening_hours.open_now == true">
+                <div class="suc-text">Open Now!</div>
+              </ng-container>
+              <ng-container *ngIf="marker.opening_hours.open_now == false">
+                <div class="err-text">Closed</div>
+              </ng-container>
+            </ng-container>
+            <ng-container *ngIf="marker.opening_hours == undefined">
+              <div class="err-text">Hours Unavailable</div>
+            </ng-container>
           </agm-info-window>
         </agm-marker>
       </ng-container>
@@ -22,14 +33,25 @@
                       (markerClick)="onMarkerClick(marker.geometry.location.lat(), marker.geometry.location.lng(), i)"
                       [openInfoWindow]="false">
             <agm-info-window [isOpen]="selectedPlace === i">
-              <img src="{{marker.icon}}" width="20px;"/> {{ marker.name }}
-              <div>Rating: {{ marker.rating }}</div>
+              <div class="infoName">{{ marker.name }}</div>
+              <!--<img class="infoIcon" src="{{marker.icon}}" width="30px;"/>-->
+              <div class="infoRating"> Rating: <span>{{ marker.rating }}</span></div>
+              <ng-container *ngIf="marker.opening_hours != undefined">
+                <ng-container *ngIf="marker.opening_hours.open_now == true">
+                  <div class="suc-text">Open Now!</div>
+                </ng-container>
+                <ng-container *ngIf="marker.opening_hours.open_now == false">
+                  <div class="err-text">Closed</div>
+                </ng-container>
+              </ng-container>
+              <ng-container *ngIf="marker.opening_hours == undefined">
+                <div class="err-text">Hours Unavailable</div>
+              </ng-container>
             </agm-info-window>
           </agm-marker>
         </ng-container>
       </ng-container>
     </ng-template>
   </ng-container>
-  <!--< agm - marker[latitude]="lat" [longitude]="lng" * ngIf="locationChosen"> </agm-marker>-->
 </agm-map>
 
