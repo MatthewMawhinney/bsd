@@ -1,7 +1,7 @@
 # Backseat Driver
 
 Backseat Driver is an application built with Node.js, MongoDB, Angular2, and Express, known to developers as the MEAN Stack. 
-BSD is hosted through heroku and can be found at https://www.------.com
+BSD is hosted through heroku and can be found at https://www.bsdriver-herokuapps.com
 
 ![alt text](https://mattmawhinney.com/imgs/BSD_Home.png "Backseat Driver Home Page")
 
@@ -21,4 +21,8 @@ On the back-end, the app uses Node.js and MongoDB to give users the ability to r
 
 ## Using Backseat Driver
 
+To use BSD, simply travel to the home page, type what kind of location you are looking for and choose to use your current location or manually enter one. From there, the map will give the user 10 locations related to that search query and the location provided. The user can then view the ratings and locations of the results on both the map and the places sidebar, they can then get directions to the location or even save the location for later, if they are logged in of course. The user can also change their search filter at any time from the dashboard if they want to look for something new.
+
 ![alt text](https://mattmawhinney.com/imgs/BSD_Dash.png "Backseat Driver Dashboard Page")
+
+
