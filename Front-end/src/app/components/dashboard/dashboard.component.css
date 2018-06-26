@@ -138,7 +138,7 @@
 }
 @media all and (max-width: 420px) {
     .filter {
-        width: 240px;
+        width: 255px;
     }
 }
 @media all and (max-width: 350px) {
