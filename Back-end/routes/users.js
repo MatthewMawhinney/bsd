@@ -14,11 +14,28 @@ router.post('/register', (req, res) => {
         password: req.body.password,
         favorites: req.body.favorites
     });
-    User.addUser(newUser, (err, user) => {
-        if(err){
-            res.json({success: false, msg: 'Failed to register user'});
+    
+    User.getUserByUsername(newUser.username, (err, user) => {
+        if(err) throw err;
+        if(user) {
+            res.json({ success: false, msg: 'Username already exists' });
+            return false;
         } else {
-            res.json({success: true, msg: 'Registered User'});
+            User.getUserByEmail(newUser.email, (err, user) => {
+                if(err) throw err;
+                if(user) {
+                    res.json({ success: false, msg: 'Email is already registered' });
+                    return false;
+                } else {
+                    User.addUser(newUser, (err, user) => {
+                        if (err) {
+                            res.json({ success: false, msg: 'Failed to register user, try again' });
+                        } else {
+                            res.json({ success: true, msg: 'Welcome to Backseat Driver!' });
+                        }
+                    });
+                }
+            })
         }
     });
 });

@@ -49,10 +49,10 @@ export class RegisterComponent implements OnInit {
     console.log(user);
     this.registerService.registerUser(user).subscribe(data => {
       if(data.success) {
-        this.flashMessage.show('Welcome to Backseat Driver!', { cssClass: 'flashValidate-suc', timeout: 5000 });
+        this.flashMessage.show(data.msg, { cssClass: 'flashValidate-suc', timeout: 5000 });
         //this.router.navigate(['/login']);
       } else {
-        this.flashMessage.show('Something went wrong...', { cssClass: 'flashValidate-err', timeout: 5000 });
+        this.flashMessage.show(data.msg, { cssClass: 'flashValidate-err', timeout: 5000 });
       }
     });
   }

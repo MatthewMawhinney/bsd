@@ -15,6 +15,8 @@ import {PlaceService} from "../../services/place.service";
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+
+  userLoc: Geolocation;
   newSearch: boolean;
   searchFilter: string;
   pinsButton = 'My Pins';
@@ -33,6 +35,9 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.comms.newSearch.subscribe(data => this.newSearch = data);
     this.comms.showFavs.subscribe(data => this.showFavs = data)
+    // this.comms.searchLocation.subscribe(data =>{ this.userLoc = data})
+    console.log('inside init dash, userLoc:');
+    // setTimeout(()=>{console.log(this.comms.searchLocation)},100);
   }
 
   swapTags() {

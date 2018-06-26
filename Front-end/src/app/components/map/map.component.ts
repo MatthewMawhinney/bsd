@@ -49,7 +49,11 @@ export class MapComponent implements OnInit, DoCheck {
   }
 
   ngDoCheck() {
+    console.log("inside ngDoCheck");
+    console.log(this.newSearch);
+    console.log(this.searchLocation);
     if (this.newSearch) {
+      console.log('inside IF ngDoCheck');
       this.loc = new google.maps.LatLng(this.searchLocation.lat, this.searchLocation.lng);
       this.setPlaces();
       this.commsService.toggleSearch(false);
